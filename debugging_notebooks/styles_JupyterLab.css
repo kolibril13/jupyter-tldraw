@@ -1,0 +1,12 @@
+.jp-OutputArea-output {
+  box-sizing: border-box;
+}
+
+.tl-container {
+  overflow: hidden;
+  position: fixed;
+  overscroll-behavior: none;
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+}
