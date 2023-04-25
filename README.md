@@ -1,4 +1,7 @@
 # tldraw_jupyter_experiment
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Octoframes/jupyter-tldraw/HEAD)
+
 Annotating jupyter cell output with tldraw
 
 Demo how this might look like one day:
