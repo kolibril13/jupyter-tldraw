@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "draw"
+version = "0.0.1"
+description = "Tldraw fo Jupyter"
+authors = ["kolibril13 <44469195+kolibril13@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.14"
+ipython = ">=6.0.0"
+ipykernel = ">=5.0.0"
+Pillow = ">=9.1.0"
+
+[tool.poetry.dev-dependencies]
+black = {extras = ["jupyter"], version = ">=22.3.0"}
+matplotlib = ">=3.5.1"
+pytest = ">=7.1.2"
+isort = ">=5.10.1"
+notebook = ">6.4.11"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
