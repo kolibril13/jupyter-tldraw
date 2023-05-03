@@ -41,5 +41,7 @@ class TldrawWidget(ipyreact.ReactWidget):
     image_height = Int(100).tag(sync=True)
 
     base64img = Unicode("").tag(sync=True) 
-    _esm = Path("draw/tldraw_component.tsx").read_text()
+    p  = Path(__file__).resolve().parent  / "tldraw_component.tsx"
+    _esm = p.read_text()
+    
 
