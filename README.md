@@ -1,6 +1,6 @@
 # tldraw_jupyter_experiment
 
-[![Binder](https://mybinder.org/v2/gh/Octoframes/jupyter-tldraw/HEAD?labpath=debugging_notebooks%2Ftldraw_shape2_example.ipynb)
+![Binder](https://mybinder.org/v2/gh/kolibril13/jupyter-tldraw/HEAD?labpath=debugging_notebooks%tldraw_shape2_example.ipynb)
 
 Annotating jupyter cell output with tldraw
 
