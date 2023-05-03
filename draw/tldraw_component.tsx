@@ -31,7 +31,7 @@ export default function App({ image_width, image_height, base64img }) {
         height: image_height + 120,
       }}
     >
-      <Tldraw onMount={handleMount}  />
+      <Tldraw onMount={handleMount} showMenu={false} showPages = {false} />
     </div>
   );
 }
