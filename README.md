@@ -2,7 +2,7 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kolibril13/jupyter-tldraw/HEAD?labpath=example_notebook.ipynb)
 
-Annotating jupyter cell output with tldraw
+Annotating jupyter cell output with tldraw.
 
 Demo how this might look like one day:
 
