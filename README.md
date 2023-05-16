@@ -2,6 +2,8 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kolibril13/jupyter-tldraw/HEAD?labpath=example_notebook.ipynb)
 
+Repo currenlty broken.
+
 Annotating jupyter cell output with tldraw.
 
 Demo how this might look like one day:
@@ -16,3 +18,4 @@ pip install jupyterlab
 pip install ipyreact
 jupyterlab   (or alternative VS Code Jupyter Lab)
 ```
+
