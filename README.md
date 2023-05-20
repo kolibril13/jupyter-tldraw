@@ -19,3 +19,15 @@ pip install ipyreact
 jupyterlab   (or alternative VS Code Jupyter Lab)
 ```
 
+
+
+# Changelog
+
+
+## 0.0.2
+
+* refactor code
+
+## 0.0.1
+
+* init setup

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tldraw"
-version = "0.0.1"
+version = "0.0.2"
 description = "Tldraw fo Jupyter"
 authors = ["kolibril13 <44469195+kolibril13@users.noreply.github.com>"]
 license = "MIT"
