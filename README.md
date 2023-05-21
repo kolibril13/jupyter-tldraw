@@ -1,9 +1,12 @@
 # Jupyter Tldraw
 
+[![PyPI version](https://img.shields.io/pypi/v/tldraw.svg)](https://pypi.org/project/tldraw/)
+
+
 This project brings the very good free whiteboard https://github.com/tldraw/tldraw-v1 into the jupyter output.
 
-Based on ipyreact and tldraw-v1.
-Currenlty experimental.
+Based on ipyreact and tldraw-v1.  
+Currenlty experimental.  
 The latest tldraw-v2 (https://github.com/tldraw/tldraw) is not support because of this issue: https://github.com/kolibril13/jupyter-tldraw/issues/9
 
 Installation:
