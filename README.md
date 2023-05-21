@@ -1,19 +1,16 @@
-# tldraw_jupyter_experiment
+# Jupyter Tldraw
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kolibril13/jupyter-tldraw/HEAD?labpath=example_notebook.ipynb)
+This project brings the very good free whiteboard https://github.com/tldraw/tldraw-v1 into the jupyter output.
 
-Annotating jupyter cell output with tldraw.
-
-Demo how this might look like one day:
-
-https://user-images.githubusercontent.com/44469195/224175450-d91bf5b9-c442-4103-a680-3a9a191b0f93.mov
-
+Based on ipyreact and tldraw-v1.
+Currenlty experimental.
+The latest tldraw-v2 (https://github.com/tldraw/tldraw) is not support because of this issue: https://github.com/kolibril13/jupyter-tldraw/issues/9
 
 Installation:
 ```
 python3.11 -m venv .venv
 pip install jupyterlab
-pip install ipyreact
+pip install tldraw
 jupyterlab   (or alternative VS Code Jupyter Lab)
 ```
 
@@ -21,6 +18,9 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+## 0.0.3
+
+* refactor readme
 
 ## 0.0.2
 
