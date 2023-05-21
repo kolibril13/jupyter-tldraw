@@ -26,7 +26,7 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 ## 0.0.3
 
 * refactor readme
-
+* add jupyterlite demo
 ## 0.0.2
 
 * refactor code
