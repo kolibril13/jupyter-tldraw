@@ -42,6 +42,5 @@ class TldrawMatplotlibWidget(ipyreact.ReactWidget):
 
     base64img = Unicode("").tag(sync=True) 
     p  = Path(__file__).resolve().parent  / "tldraw_matplotlib_component.tsx"
-    _esm = p.read_text()
-    
+    _esm = p
 
