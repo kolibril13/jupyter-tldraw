@@ -6,6 +6,11 @@ from pathlib import Path
 
 
 class TldrawMatplotlib(ipyreact.ReactWidget):
+
+    def update_plot(self,fig):
+        self.base64img = TldrawMatplotlib.figure_to_base64(fig)
+
+
     @staticmethod
     def figure_to_base64(my_figure):
         buf = io.BytesIO()
@@ -38,6 +43,7 @@ class TldrawMatplotlib(ipyreact.ReactWidget):
         return image_width, image_height
 
     def __init__(self, my_figure=None, **kwargs):
+        # print("Info: All drawings are deleted when the notebook is reloaded, saving the overlay is not supported yet.")
         if my_figure is None:
             "Plase provide a figure"
 
