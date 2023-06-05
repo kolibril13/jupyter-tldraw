@@ -23,6 +23,10 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+## 0.1.1
+
+* add update_plot in TldrawMatplotlib
+
 ## 0.1.0
 
 * Added TldrawMatplotlib
