@@ -6,10 +6,7 @@
 
 
 This project brings the very good free whiteboard https://github.com/tldraw/tldraw-v1 into the jupyter output.
-
-WARNING: This widget broke in early July 2023 due to https://github.com/kolibril13/jupyter-tldraw/issues/13 . This might be fixed at some point in future.
-
-
+   d
 Based on ipyreact and tldraw-v1.  
 Currenlty experimental.  
 The latest tldraw-v2 (https://github.com/tldraw/tldraw) is not support because of this issue: https://github.com/kolibril13/jupyter-tldraw/issues/9
