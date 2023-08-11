@@ -3,6 +3,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/tldraw.svg)](https://pypi.org/project/tldraw/)
 [![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://kolibril13.github.io/jupyter-tldraw/lab/?path=example_notebook.ipynb)
 
+<img width="946" alt="image" src="https://github.com/kolibril13/jupyter-tldraw/assets/44469195/8ba7e662-1f35-4e3b-b342-6d9fd3079e22">
 
 
 This project brings the very good free whiteboard https://github.com/tldraw/tldraw-v1 into the jupyter output.
