@@ -1,19 +1,20 @@
 import * as React from "react";
-import { Tldraw } from '@tldraw/tldraw'
+import { Tldraw } from "@tldraw/tldraw";
 import { createRender, useModelState } from "@anywidget/react";
 
 export const render = createRender(() => {
-  const [content] = useModelState("content");
-  console.log("content", content);
+  const [width] = useModelState("width");
+  const [height] = useModelState("height");
+
   return (
     <div
       style={{
         position: "relative",
-        width: "700px",
-        height: "300px",
+        width: width,
+        height: height,
       }}
     >
-      <Tldraw />
+      <Tldraw showMenu={false} showPages={false} />
     </div>
   );
 });
