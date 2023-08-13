@@ -30,6 +30,9 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 ## 0.1.2
 
 * replace ipyreact backend with anywidget backend.
+  * this will make this package more reliable, because all js and css is shipped via pip and not anymore via cdn.
+* Remove JupyterLite build.
+* Remove experimental files.
 
 
 ## 0.1.1
