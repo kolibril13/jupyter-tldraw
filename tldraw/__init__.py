@@ -1,5 +1,5 @@
 from .tldraw import TldrawWidget
-from .tldraw_matplotlib import TldrawMatplotlib
+# from .tldraw_matplotlib import TldrawMatplotlib
 
 # import importlib.metadata
 

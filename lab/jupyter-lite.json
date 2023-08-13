@@ -1,7 +1,0 @@
-{
-  "jupyter-config-data": {
-    "enableMemoryStorage": true,
-    "settingsStorageDrivers": ["memoryStorageDriver"],
-    "contentsStorageDrivers": ["memoryStorageDriver"]
-  }
-}

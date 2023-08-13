@@ -1,3 +1,0 @@
-jupyterlite
-jupyterlab
-tldraw
