@@ -9,7 +9,3 @@ except importlib.metadata.PackageNotFoundError:
 
 
 from .tldraw import TldrawWidget
-# from .tldraw_matplotlib import TldrawMatplotlib
-
-# import importlib.metadata
-
