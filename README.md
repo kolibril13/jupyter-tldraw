@@ -1,16 +1,11 @@
 # Jupyter Tldraw
-
 [![PyPI version](https://img.shields.io/pypi/v/tldraw.svg)](https://pypi.org/project/tldraw/)
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://kolibril13.github.io/jupyter-tldraw/lab/?path=example_notebook.ipynb)
-
 <img width="946" alt="image" src="https://github.com/kolibril13/jupyter-tldraw/assets/44469195/8ba7e662-1f35-4e3b-b342-6d9fd3079e22">
 
-
 This project brings the very good free whiteboard https://github.com/tldraw/tldraw-v1 into the jupyter output.
-   d
-Based on ipyreact and tldraw-v1.  
-Currenlty experimental.  
-The latest tldraw-v2 (https://github.com/tldraw/tldraw) is not support because of this issue: https://github.com/kolibril13/jupyter-tldraw/issues/9
+Based on ipyreact and tldraw-v1, currenlty experimental.  
+The migration to tldraw-v2 (https://github.com/tldraw/tldraw) is likely to happen soon, and the API may change then.
+I have temporarily removed the JupyterLite build in version 0.1.2 because there are a lot of moving parts and a lot of maintenance costs.
 
 Installation:
 ```
@@ -20,12 +15,7 @@ pip install tldraw
 jupyterlab   (or alternative VS Code Jupyter Lab)
 ```
 
-
-
 # Changelog
-
-
-
 
 ## 0.1.2
 
