@@ -5,11 +5,6 @@ build-backend = "hatchling.build"
 [project]
 name = "tldraw"
 version = "0.1.2"
-description = "Tldraw for Jupyter"
-authors = ["kolibril13 <44469195+kolibril13@users.noreply.github.com>"]
-license = "MIT"
-readme = "README.md"
-
 dependencies = [
     "anywidget"
 ]
@@ -26,17 +21,17 @@ features = ["dev"]
 
 [tool.hatch.build]
 artifacts = [
-    "src/tldraw1/static/*.js",
-    "src/tldraw1/static/*.css",
-    "src/tldraw1/static/*.woff",
-    "src/tldraw1/static/*.woff2"
+    "src/tldraw/static/*.js",
+    "src/tldraw/static/*.css",
+    "src/tldraw/static/*.woff",
+    "src/tldraw/static/*.woff2"
 ]
 
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
-ensured-targets = ["src/tldraw1/static/widget.js"]
-skip-if-exists = ["src/tldraw1/static/widget.js"]
+ensured-targets = ["src/tldraw/static/widget.js"]
+skip-if-exists = ["src/tldraw/static/widget.js"]
 dependencies = ["hatch-jupyter-builder>=0.5.0"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
