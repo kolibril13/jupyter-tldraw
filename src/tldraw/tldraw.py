@@ -1,8 +1,10 @@
 
 import pathlib
 import anywidget
-import traitlets
+from traitlets import Int
 
 class TldrawWidget(anywidget.AnyWidget):
-    content = traitlets.Unicode("Hi").tag(sync=True)
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
     _esm = pathlib.Path(__file__).parent / "static" /"widget.js"
+
