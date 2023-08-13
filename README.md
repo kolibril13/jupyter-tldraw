@@ -17,6 +17,10 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+
+## 0.1.3
+* format toml
+
 ## 0.1.2
 
 * replace ipyreact backend with anywidget backend.
