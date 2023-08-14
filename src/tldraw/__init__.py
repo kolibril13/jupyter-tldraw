@@ -10,3 +10,4 @@ except importlib.metadata.PackageNotFoundError:
 
 from .tldraw import TldrawWidget
 from .matplotlib_annotate import TldrawMatplotlib
+# from .image_segmentation import TldrawSegmentation
