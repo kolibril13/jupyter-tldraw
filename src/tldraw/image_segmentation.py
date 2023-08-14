@@ -1,5 +1,5 @@
 # TODO: This code needs some cleanup, but it works :)
- 
+
 import base64
 import io
 
@@ -18,6 +18,8 @@ from traitlets import Unicode, Int, observe
 
 
 class TldrawSegmentation(anywidget.AnyWidget):
+    print("This is experimental")
+
     def __init__(self, coins, edges, markers, **kwargs):
         super().__init__(**kwargs)
         self.coins = coins
@@ -96,13 +98,10 @@ class TldrawSegmentation(anywidget.AnyWidget):
     @observe("my_coordinates")
     def _observe_my_coordinates(self, change):
         self.base64img = TldrawSegmentation.segment_image_based_on_marker(
-            self.my_coordinates,
-            self.coins, 
-            self.edges, 
-            self.markers
+            self.my_coordinates, self.coins, self.edges, self.markers
         )
 
-    _esm = pathlib.Path(__file__).parent / "static" /"segment_image.js"
-    _css = pathlib.Path(__file__).parent / "static" /"segment_image.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "segment_image.js"
+    _css = pathlib.Path(__file__).parent / "static" / "segment_image.css"
     # _esm = Path.cwd() / "src" / "tldraw" / "static" / "segment_image.js"
     # _css = Path.cwd() / "src" / "tldraw" / "static" / "segment_image.css"
