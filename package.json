@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "npm run build -- --sourcemap=inline --watch",
-    "build": "esbuild --minify --format=esm --bundle --outdir=src/tldraw/static js/widget.jsx js/matplotlib_annotate.jsx js/segment_image.jsx js/testing.jsx js/testing_observe.jsx --loader:.woff=file --loader:.woff2=file",
+    "build": "esbuild --minify --format=esm --bundle --outdir=src/tldraw/static js/*.jsx --loader:.woff=file --loader:.woff2=file",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
