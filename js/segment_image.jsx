@@ -7,7 +7,7 @@ export const render = createRender(() => {
   const [image_width] = useModelState("image_width");
   const [image_height] = useModelState("image_height");
   const [base64img] = useModelState("base64img");
-  const [set_my_coordinates] = useModelState("set_my_coordinates");
+  const [my_coordinates, set_my_coordinates] = useModelState("my_coordinates");
   const [app, setApp] = React.useState();
 
   const handleMount = React.useCallback((app) => {
@@ -50,7 +50,7 @@ export const render = createRender(() => {
         console.log(my_object.id);
         console.log(my_points.length);
         console.log(my_points.at(-1));
-        // set_my_coordinates(my_object.point.toString());
+        set_my_coordinates(my_object.point.toString());
       }
     }
   };
