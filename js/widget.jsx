@@ -10,11 +10,16 @@ export const render = createRender(() => {
     <div
       style={{
         position: "relative",
-        width: width,
+        width: width+20,
         height: height,
       }}
     >
-      <Tldraw showMenu={false} showPages={false} />
+      <Tldraw
+        showStyles={false}
+        showZoom={false}
+        showPages={false}
+        showMenu={false}
+      />
     </div>
   );
 });
