@@ -17,6 +17,10 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+## 0.1.4
+
+* Add experimental TldrawSegmentation
+
 
 ## 0.1.3
 * format toml
