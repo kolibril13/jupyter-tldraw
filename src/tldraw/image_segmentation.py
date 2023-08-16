@@ -18,7 +18,6 @@ from traitlets import Unicode, Int, observe
 
 
 class TldrawSegmentation(anywidget.AnyWidget):
-    print("This is experimental")
 
     def __init__(self, coins, edges, markers, **kwargs):
         super().__init__(**kwargs)

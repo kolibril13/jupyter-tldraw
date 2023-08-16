@@ -7,7 +7,6 @@ import io
 
 
 class TldrawMatplotlib(anywidget.AnyWidget):
-    print("This is experimental")
     image_width = Int(300).tag(sync=True)
     image_height = Int(100).tag(sync=True)
     base64img = Unicode("").tag(sync=True)
