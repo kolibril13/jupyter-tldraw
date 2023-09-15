@@ -22,7 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+.venv
 __pycache__
 .ipynb_checkpoints
 
