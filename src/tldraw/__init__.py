@@ -11,6 +11,9 @@ except importlib.metadata.PackageNotFoundError:
 
 
 class TldrawWidget(anywidget.AnyWidget):
+    width = traitlets.Int(600).tag(sync=True)
+    height = traitlets.Int(300).tag(sync=True)
+
     _esm = pathlib.Path(__file__).parent / "static" / "widget.js"
     _css = pathlib.Path(__file__).parent / "static" / "widget.css"
     value = traitlets.Int(0).tag(sync=True)

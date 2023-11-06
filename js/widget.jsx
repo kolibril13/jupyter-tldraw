@@ -7,15 +7,17 @@ import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import "./widget.css";
 export const render = createRender(() => {
+  const [width] = useModelState("width");
+  const [height] = useModelState("height");
   return (
     <div
       style={{
         position: "relative",
-        width: 400,
-        height: 500,
+        width: width,
+        height: height,
       }}
     >
       <Tldraw />
     </div>
-	);
+  );
 });
