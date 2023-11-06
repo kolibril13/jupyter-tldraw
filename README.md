@@ -17,6 +17,13 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+
+
+## 2.0.0
+
+* simplify to minimal template
+
+
 ## 1.0.0
 
 * Rename notebooks, and prepare 2.0.0 release.

@@ -23,13 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 .venv
+dist
+
+# Python
 __pycache__
 .ipynb_checkpoints
 
-src/**/*.js
-src/**/*.css
-src/**/*.woff
-src/**/*.woff2
-
-banner.png
-mountain.jpeg
+src/tldraw/static

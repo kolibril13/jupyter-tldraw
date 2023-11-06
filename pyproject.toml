@@ -4,12 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tldraw"
-version = "1.0.0"
+version = "2.0.0"
 dependencies = ["anywidget"]
-description = "Tldraw fo Jupyter"
+description = "Tldraw for Jupyter"
 license = "MIT"
 readme = "README.md"
-
 [project.optional-dependencies]
 dev = ["watchfiles", "jupyterlab"]
 
@@ -17,15 +16,10 @@ dev = ["watchfiles", "jupyterlab"]
 [tool.hatch.envs.default]
 features = ["dev"]
 
+
 [tool.hatch.build]
 only-packages = true
-artifacts = [
-    "src/tldraw/static/*.js",
-    "src/tldraw/static/*.css",
-    "src/tldraw/static/*.woff",
-    "src/tldraw/static/*.woff2",
-]
-
+artifacts = ["src/tldraw/static/*"]
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
