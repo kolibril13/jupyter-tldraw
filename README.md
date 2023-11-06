@@ -17,6 +17,10 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 # Changelog
 
+## 1.0.0
+
+* Rename notebooks, and prepare 2.0.0 release.
+
 ## 0.1.5
 
 * add .venv to gitignore, so that it's not uploaded to pypi by hatch build.
