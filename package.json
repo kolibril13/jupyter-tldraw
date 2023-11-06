@@ -5,6 +5,7 @@
 	},
 	"dependencies": {
 		"@anywidget/react": "^0.0.2",
+		"@tldraw/tldraw": "^2.0.0-canary.b9d82466295e",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

@@ -19,6 +19,11 @@ jupyterlab   (or alternative VS Code Jupyter Lab)
 
 
 
+## 2.0.1
+```
+npm install @tldraw/tldraw@2.0.0-canary.b9d82466295e (Version from 6th November2023)
+```
+
 ## 2.0.0
 
 * simplify to minimal template
