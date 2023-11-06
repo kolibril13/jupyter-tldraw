@@ -14,3 +14,11 @@ class TldrawWidget(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "widget.js"
     _css = pathlib.Path(__file__).parent / "static" / "widget.css"
     value = traitlets.Int(0).tag(sync=True)
+
+
+
+
+class TldrawImage(anywidget.AnyWidget):
+    _esm = pathlib.Path(__file__).parent / "static" / "image.js"
+    _css = pathlib.Path(__file__).parent / "static" / "image.css"
+    value = traitlets.Int(0).tag(sync=True)
