@@ -1,7 +1,5 @@
 import * as React from "react";
-
 import { createRender, useModelState } from "@anywidget/react";
-
 
 import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
