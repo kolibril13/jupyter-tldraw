@@ -11,6 +11,13 @@ pip install tldraw
 jupyterlab   (or alternative VS Code Jupyter Lab)
 ```
 
+Example:
+```
+from tldraw import TldrawWidget
+t = TldrawWidget()
+t
+```
+
 # Changelog
 
 
