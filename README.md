@@ -23,9 +23,10 @@ t
 
 
 ## 2.0.1
-```
-npm install @tldraw/tldraw@2.0.0-canary.b9d82466295e (Version from 6th November2023)
-```
+
+Switch to new version: `@tldraw/tldraw@2.0.0-canary.b9d82466295e` (Version from 6th November2023)
+
+<!-- npm install @tldraw/tldraw@2.0.0-canary.b9d82466295e -->
 
 ## 2.0.0
 
