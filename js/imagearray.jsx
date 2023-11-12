@@ -6,6 +6,13 @@ import "@tldraw/tldraw/tldraw.css";
 
 export const render = createRender(() => {
   const [app, setApp] = React.useState(null);
+  const [image_width] = useModelState("image_width");
+  const [image_height] = useModelState("image_height");
+  const [base64img] = useModelState("base64img");
+
+  const handleMount = React.useCallback((app) => {
+    setApp(app);
+  }, []);
 
   React.useEffect(() => {
     if (app) {
@@ -15,12 +22,12 @@ export const render = createRender(() => {
         typeName: "asset",
         type: "image",
         props: {
-          w: 200,
-          h: 340,
+          w: image_width,
+          h: image_height,
           name: "card-repo.png",
           isAnimated: false,
           mimeType: null,
-          src: "./image_assets/im2.png",
+          src: base64img,
         },
         meta: {},
       };
@@ -31,14 +38,14 @@ export const render = createRender(() => {
         {
           type: "image",
           props: {
-            w: 300,
-            h: 240,
+            w: image_width,
+            h: image_height,
             assetId: assetId,
           },
         },
       ]);
     }
-  }, [app]); // This will trigger the effect when `app` changes.
+  }, [base64img, app]); // This will trigger the effect when `app` changes.
 
   return (
     <div
@@ -48,7 +55,7 @@ export const render = createRender(() => {
         height: "500px",
       }}
     >
-      <Tldraw onMount={setApp} />
+      <Tldraw onMount={handleMount} showMenu={false} showPages={false} />
     </div>
   );
 });

@@ -1,9 +1,10 @@
 import importlib.metadata
 import pathlib
-
+from pathlib import Path
+import base64
 import anywidget
-import traitlets
-
+from traitlets import Unicode, Int
+import io
 try:
     __version__ = importlib.metadata.version("tldraw")
 except importlib.metadata.PackageNotFoundError:
@@ -11,12 +12,12 @@ except importlib.metadata.PackageNotFoundError:
 
 
 class TldrawWidget(anywidget.AnyWidget):
-    width = traitlets.Int(600).tag(sync=True)
-    height = traitlets.Int(300).tag(sync=True)
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
 
     _esm = pathlib.Path(__file__).parent / "static" / "widget.js"
     _css = pathlib.Path(__file__).parent / "static" / "widget.css"
-    value = traitlets.Int(0).tag(sync=True)
+    value = Int(0).tag(sync=True)
 
 
 
@@ -27,5 +28,12 @@ class TldrawImage(anywidget.AnyWidget):
 
 
 class TldrawImageArray(anywidget.AnyWidget):
+
+
+
+
+    base64img = Unicode("").tag(sync=True)
+    image_width =  Int(300).tag(sync=True)
+    image_height = Int(300).tag(sync=True)
     _esm = pathlib.Path(__file__).parent / "static" / "imagearray.js"
     _css = pathlib.Path(__file__).parent / "static" / "imagearray.css"
