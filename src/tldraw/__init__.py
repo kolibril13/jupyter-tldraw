@@ -24,4 +24,8 @@ class TldrawWidget(anywidget.AnyWidget):
 class TldrawImage(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "image.js"
     _css = pathlib.Path(__file__).parent / "static" / "image.css"
-    value = traitlets.Int(0).tag(sync=True)
+
+
+class TldrawImageArray(anywidget.AnyWidget):
+    _esm = pathlib.Path(__file__).parent / "static" / "imagearray.js"
+    _css = pathlib.Path(__file__).parent / "static" / "imagearray.css"
