@@ -51,7 +51,7 @@ export const render = createRender(() => {
     <div
       style={{
         position: "relative",
-        width: "500px",
+        width: "900px",
         height: "500px",
       }}
     >
