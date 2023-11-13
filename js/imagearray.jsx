@@ -9,6 +9,7 @@ export const render = createRender(() => {
   const [imageHeight] = useModelState("image_height");
   const [base64img] = useModelState("base64img");
   const [lastImageX, setLastImageX] = React.useState(0); // State to track the X position of the last image
+  const [lastImageY, setLastImageY] = React.useState(0); // State to track the Y position of the last image
 
   const handleMount = React.useCallback((app) => {
     setApp(app);
@@ -21,29 +22,30 @@ export const render = createRender(() => {
         id: assetId,
         typeName: "asset",
         type: "image",
-
-    
         props: {
           w: imageWidth,
           h: imageHeight,
           name: "card-repo.png",
-
           isAnimated: false,
           mimeType: null,
           src: base64img,
         },
         meta: {},
       };
-
+  
       app.createAssets([placeholderAsset]);
-
-      const newX = lastImageX + 0.3*imageWidth;
-
+  
+      const imagesPerRow = 3;
+      const spacing = 0.3; // Adjust spacing as needed
+      const rowHeight = imageHeight * (1 + spacing); // Adjust the space between rows as needed
+      const newX = (lastImageX + imageWidth * (1 + spacing)) % (imageWidth * imagesPerRow * (1 + spacing));
+      const newY = lastImageY + (newX === 0 ? rowHeight : 0);
+  
       app.createShapes([
         {
           type: "image",
-          x: newX, 
-          y: 0, 
+          x: newX,
+          y: newY,
           props: {
             w: imageWidth,
             h: imageHeight,
@@ -51,12 +53,12 @@ export const render = createRender(() => {
           },
         },
       ]);
-
-      setLastImageX(newX); // Update the last image X position
+  
+      setLastImageX(newX);
+      setLastImageY(newY); // Update the last image Y position
     }
   }, [base64img, app]);
-
-  return (
+    return (
     <div
       style={{
         position: "relative",
@@ -68,3 +70,9 @@ export const render = createRender(() => {
     </div>
   );
 });
+
+
+
+
+
+
