@@ -32,15 +32,17 @@ export const render = createRender(() => {
         },
         meta: {},
       };
-  
+
       app.createAssets([placeholderAsset]);
-  
+
       const imagesPerRow = 3;
       const spacing = 0.3; // Adjust spacing as needed
       const rowHeight = imageHeight * (1 + spacing); // Adjust the space between rows as needed
-      const newX = (lastImageX + imageWidth * (1 + spacing)) % (imageWidth * imagesPerRow * (1 + spacing));
+      const newX =
+        (lastImageX + imageWidth * (1 + spacing)) %
+        (imageWidth * imagesPerRow * (1 + spacing));
       const newY = lastImageY + (newX === 0 ? rowHeight : 0);
-  
+
       app.createShapes([
         {
           type: "image",
@@ -53,12 +55,12 @@ export const render = createRender(() => {
           },
         },
       ]);
-  
+
       setLastImageX(newX);
       setLastImageY(newY); // Update the last image Y position
     }
   }, [base64img, app]);
-    return (
+  return (
     <div
       style={{
         position: "relative",
@@ -70,9 +72,3 @@ export const render = createRender(() => {
     </div>
   );
 });
-
-
-
-
-
-
