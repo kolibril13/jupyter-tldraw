@@ -8,6 +8,7 @@ export const render = createRender(() => {
   const [imageWidth] = useModelState("image_width");
   const [imageHeight] = useModelState("image_height");
   const [base64img] = useModelState("base64img");
+  const [i, seti] = React.useState(1);
   const [lastImageX, setLastImageX] = React.useState(0); // State to track the X position of the last image
   const [lastImageY, setLastImageY] = React.useState(0); // State to track the Y position of the last image
 
@@ -35,13 +36,8 @@ export const render = createRender(() => {
 
       app.createAssets([placeholderAsset]);
 
-      const imagesPerRow = 3;
-      const spacing = 0.3; // Adjust spacing as needed
-      const rowHeight = imageHeight * (1 + spacing); // Adjust the space between rows as needed
-      const newX =
-        (lastImageX + imageWidth * (1 + spacing)) %
-        (imageWidth * imagesPerRow * (1 + spacing));
-      const newY = lastImageY + (newX === 0 ? rowHeight : 0);
+      let newX = lastImageX;
+      let newY = lastImageY;
 
       app.createShapes([
         {
@@ -56,8 +52,13 @@ export const render = createRender(() => {
         },
       ]);
 
-      setLastImageX(newX);
-      setLastImageY(newY); // Update the last image Y position
+      if (lastImageX != 0 && i % 3 === 0) {
+        setLastImageY(lastImageY + 200);
+        setLastImageX(0);
+      } else {
+        setLastImageX(newX + 200);
+      }
+      seti(i + 1);
     }
   }, [base64img, app]);
   return (
