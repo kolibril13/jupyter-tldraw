@@ -20,7 +20,9 @@ t
 
 # Changelog
 
+## 2.0.2
 
+Add experimental TldrawImageArray
 
 ## 2.0.1
 
