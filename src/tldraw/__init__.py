@@ -124,8 +124,6 @@ class MakeReal(anywidget.AnyWidget):
 
         Remember: you love your data scientist and want them to be happy. The more complete and impressive your prototype, the happier they will be. Good luck, you've got this!
         
-        Plase use a linewidth of 5 for all lines.
-
         Reply ONLY with python code.
         """
         result = sent_request_to_openai(prompt, base64_image, self.api_key)
