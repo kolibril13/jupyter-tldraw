@@ -70,5 +70,5 @@ class TldrawImageArray(anywidget.AnyWidget):
     base64img = Unicode("").tag(sync=True)
     image_width =  Int(300).tag(sync=True)
     image_height = Int(300).tag(sync=True)
-    _esm = pathlib.Path(__file__).parent / "static" / "imagearray.js"
-    _css = pathlib.Path(__file__).parent / "static" / "imagearray.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "image_and_array.js"
+    _css = pathlib.Path(__file__).parent / "static" / "image_and_array.css"
