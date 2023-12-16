@@ -5,6 +5,7 @@ import base64
 import anywidget
 from traitlets import Unicode, Int
 import io
+
 try:
     __version__ = importlib.metadata.version("tldraw")
 except importlib.metadata.PackageNotFoundError:
@@ -20,15 +21,12 @@ class TldrawWidget(anywidget.AnyWidget):
     value = Int(0).tag(sync=True)
 
 
-
-
 class TldrawImage(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "image.js"
     _css = pathlib.Path(__file__).parent / "static" / "image.css"
 
 
 class TldrawImageArray(anywidget.AnyWidget):
-
     @staticmethod
     def base64_to_image_dimensions(base64_img_string):
         # decode base64 string to bytes
@@ -50,7 +48,6 @@ class TldrawImageArray(anywidget.AnyWidget):
 
         return image_width, image_height
 
-
     def __init__(self, base64img=None, **kwargs):
         if base64img is None:
             "Plase provide a figure"
@@ -66,9 +63,35 @@ class TldrawImageArray(anywidget.AnyWidget):
             image_height=int(image_height / 2),
         )
 
-
     base64img = Unicode("").tag(sync=True)
-    image_width =  Int(300).tag(sync=True)
+    image_width = Int(300).tag(sync=True)
     image_height = Int(300).tag(sync=True)
     _esm = pathlib.Path(__file__).parent / "static" / "image_and_array.js"
     _css = pathlib.Path(__file__).parent / "static" / "image_and_array.css"
+
+
+class TldrawMakeStaticPNG(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
+
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_png.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_png.css"
+    value = Int(0).tag(sync=True)
+
+
+class TldrawMakeStaticSVG(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
+
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_svg.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_svg.css"
+    value = Int(0).tag(sync=True)
+
+
+class TldrawMakeStaticTldraw(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
+
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.css"
+    value = Int(0).tag(sync=True)
