@@ -99,10 +99,15 @@ class TldrawMakeStaticTldraw(anywidget.AnyWidget):
 
 
 class MakeReal(anywidget.AnyWidget):
+    # this makes sure that the private api key is not shown in the notebook, see https://github.com/jupyter-widgets/ipywidgets/issues/3875
+    def _repr_mimebundle_(self, *args, **kwargs):
+        mimebundle = super()._repr_mimebundle_(*args, **kwargs)
+        mimebundle["text/plain"] = "MakeReal Widget, all private info got removed!"
+        return mimebundle
+
     api_key = Unicode("KEY").tag(sync=True)
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
-
     _esm = pathlib.Path(__file__).parent / "static" / "makereal.js"
     _css = pathlib.Path(__file__).parent / "static" / "makereal.css"
     snapshot = Unicode("").tag(sync=True)
