@@ -15,8 +15,8 @@ class TldrawWidget(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "widget.js"
-    _css = pathlib.Path(__file__).parent / "static" / "widget.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "minimal.js"
+    _css = pathlib.Path(__file__).parent / "static" / "minimal.css"
     value = Int(0).tag(sync=True)
 
 
