@@ -9,7 +9,7 @@ import {
   getSvgAsImage,
 } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
-import "./widget.css";
+import "./makereal.css";
 
 function blobToBase64(blob) {
   return new Promise((resolve, _) => {

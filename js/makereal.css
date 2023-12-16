@@ -1,0 +1,26 @@
+/* custom.css */
+.tlui-debug-panel {
+    display: none;
+}
+
+.tlui-toolbar__extras {
+    display: none;
+}
+
+.tlui-menu-zone {
+    display: none;
+}
+
+.tlui-navigation-zone {
+    display: none;
+}
+
+.tlui-help-menu {
+    display: none;
+}
+
+
+
+.tlui-layout__top__right {
+    transform: translateY(60px);
+}
