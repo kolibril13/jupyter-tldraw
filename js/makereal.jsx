@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createRender, useModelState } from "@anywidget/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Tldraw,
@@ -76,6 +76,17 @@ export const render = createRender(() => {
   const [snapshotData, setSnapshotData] = useModelState("snapshot");
   const [showImage, setShowImage] = useState(false);
 
+  useEffect(() => {
+    let timer;
+    if (showImage) {
+      timer = setTimeout(() => {
+        setShowImage(false);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [showImage]);
+
   const handleMount = (editor) => {
     const id = createShapeId("hello");
 
@@ -108,21 +119,17 @@ export const render = createRender(() => {
         style={{
           width: width,
           height: height,
-        }}>
-      <Tldraw onMount={handleMount}>
-        <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
-      </Tldraw>
+        }}
+      >
+        <Tldraw onMount={handleMount}>
+          <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
+        </Tldraw>
       </div>
-      {/* {
-      showImage && (
-        <>
-          <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
-            <img src={snapshotData} alt="Base64" />
-          </div>
-
-          <div>Make this a plot using matplotlib!</div>
-        </>
-      )} */}
+      {showImage && (
+        <div style={{ fontSize: "30px" }}>
+          OpenAI request takes about 5 seconds.
+        </div>
+      )}{" "}
     </div>
   );
 });

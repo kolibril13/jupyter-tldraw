@@ -29,7 +29,6 @@ def sent_request_to_openai(prompt, base64_image, api_key):
     "max_tokens": 300
   }
 
-  print("Sending request to OpenAI API... This will take about 5 seconds.")
   response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
 
   r = response.json()
