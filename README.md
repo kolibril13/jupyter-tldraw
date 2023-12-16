@@ -20,6 +20,14 @@ t
 
 # Changelog
 
+
+
+### 2.0.4
+
+Add experimental SVG/PNG export.
+Add experimental .txt export.
+
+
 ## 2.0.3
 
 Update to version `2.0.0-alpha.19`
