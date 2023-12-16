@@ -102,7 +102,8 @@ class MakeReal(anywidget.AnyWidget):
     # this makes sure that the private api key is not shown in the notebook, see https://github.com/jupyter-widgets/ipywidgets/issues/3875
     def _repr_mimebundle_(self, *args, **kwargs):
         mimebundle = super()._repr_mimebundle_(*args, **kwargs)
-        mimebundle["text/plain"] = "MakeReal Widget, all private info got removed!"
+        mimebundle[0]["text/plain"] = "hi"
+        print(mimebundle)
         return mimebundle
 
     api_key = Unicode("KEY").tag(sync=True)
