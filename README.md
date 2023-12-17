@@ -21,6 +21,9 @@ t
 # Changelog
 
 
+### 2.0.5
+
+Add requests module
 
 ### 2.0.4
 

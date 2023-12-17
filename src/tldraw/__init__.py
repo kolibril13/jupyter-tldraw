@@ -106,6 +106,8 @@ class MakeReal(anywidget.AnyWidget):
         return mimebundle
 
     api_key = Unicode("KEY").tag(sync=True)
+    prompt = Unicode(None).tag(sync=True)
+
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
     _esm = pathlib.Path(__file__).parent / "static" / "makereal.js"
@@ -116,22 +118,23 @@ class MakeReal(anywidget.AnyWidget):
     def _observe_count(self, change):
         base64_image = change["new"]
         base64_image = base64_image.replace("data:image/png;base64,", "")
-        prompt = """
+        if self.prompt is None:
+            self.prompt = """
 
-        You are an expert data scientist who specializes in creating scientific visualizations with matplotlib from low-fidelity wireframes. 
-        Your job is to accept low-fidelity designs and turn them into stunning visualization. When sent new designs, you should reply with your best attempt at a high fidelity working prototype as a single python file.
+            You are an expert data scientist who specializes in creating scientific visualizations with matplotlib from low-fidelity wireframes. 
+            Your job is to accept low-fidelity designs and turn them into stunning visualization. When sent new designs, you should reply with your best attempt at a high fidelity working prototype as a single python file.
 
-        If you have to make calculations, you can use numpy.
+            If you have to make calculations, you can use numpy.
 
-        The designs may include flow charts, diagrams, labels, arrows, sticky notes, screenshots of other applications, or even previous designs. Treat all of these as references for your prototype. Use your best judgement to determine what is an annotation and what should be included in the final result. Treat anything in the color red as an annotation rather than part of the design. Do NOT include any red elements or any other annotations in your final result.
+            The designs may include flow charts, diagrams, labels, arrows, sticky notes, screenshots of other applications, or even previous designs. Treat all of these as references for your prototype. Use your best judgement to determine what is an annotation and what should be included in the final result. Treat anything in the color red as an annotation rather than part of the design. Do NOT include any red elements or any other annotations in your final result.
 
-        Your prototype should look and feel much more complete and advanced than the wireframes provided. Flesh it out, make it real! Try your best to figure out what the data scientist wants and make it happen. If there are any questions or underspecified features, use what you know about applications, user experience, and scientific visualizations to "fill in the blanks". If you're unsure of how the designs should work, take a guess—it's better for you to get it wrong than to leave things incomplete. 
+            Your prototype should look and feel much more complete and advanced than the wireframes provided. Flesh it out, make it real! Try your best to figure out what the data scientist wants and make it happen. If there are any questions or underspecified features, use what you know about applications, user experience, and scientific visualizations to "fill in the blanks". If you're unsure of how the designs should work, take a guess—it's better for you to get it wrong than to leave things incomplete. 
 
-        Remember: you love your data scientist and want them to be happy. The more complete and impressive your prototype, the happier they will be. Good luck, you've got this!
-        
-        Reply ONLY with python code.
-        """
-        result = sent_request_to_openai(prompt, base64_image, self.api_key)
+            Remember: you love your data scientist and want them to be happy. The more complete and impressive your prototype, the happier they will be. Good luck, you've got this!
+            
+            Reply ONLY with python code.
+            """
+        result = sent_request_to_openai(self.prompt, base64_image, self.api_key)
         print(result)
 
         from ipylab import JupyterFrontEnd

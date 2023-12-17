@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tldraw"
-version = "2.0.4"
-dependencies = ["anywidget", "ipylab"]
+version = "2.0.5"
+dependencies = ["anywidget", "ipylab", "requests"]
 description = "Tldraw for Jupyter"
 license = "MIT"
 readme = "README.md"
