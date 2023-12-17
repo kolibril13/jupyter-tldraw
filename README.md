@@ -24,8 +24,9 @@ t
 
 ### 2.0.4
 
-Add experimental SVG/PNG export.
-Add experimental .txt export.
+Add experimental SVG/PNG export.  
+Add experimental .txt export.  
+Add makereal
 
 
 ## 2.0.3
