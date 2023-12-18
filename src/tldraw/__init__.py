@@ -106,7 +106,7 @@ class MakeReal(anywidget.AnyWidget):
         return mimebundle
 
     api_key = Unicode("KEY").tag(sync=True)
-    prompt = Unicode(None).tag(sync=True)
+    prompt = Unicode("").tag(sync=True) #empty string by default
 
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
@@ -118,7 +118,7 @@ class MakeReal(anywidget.AnyWidget):
     def _observe_count(self, change):
         base64_image = change["new"]
         base64_image = base64_image.replace("data:image/png;base64,", "")
-        if self.prompt is None:
+        if self.prompt == "":
             self.prompt = """
 
             You are an expert data scientist who specializes in creating scientific visualizations with matplotlib from low-fidelity wireframes. 
