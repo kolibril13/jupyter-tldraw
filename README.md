@@ -55,6 +55,9 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.6
+
+Tweak prompt parameter.
 
 ### 2.0.5
 
