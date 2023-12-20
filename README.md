@@ -55,6 +55,10 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.7
+
+*increase number of output tokens to 4096
+
 ### 2.0.6
 
 Tweak prompt parameter.

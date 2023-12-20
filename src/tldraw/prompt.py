@@ -19,7 +19,7 @@ def sent_request_to_openai(prompt, base64_image, api_key):
                 ],
             }
         ],
-        "max_tokens": 300,
+        "max_tokens": 4096,
     }
 
     response = requests.post(
