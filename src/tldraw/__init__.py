@@ -71,12 +71,12 @@ class TldrawImageArray(anywidget.AnyWidget):
     _css = pathlib.Path(__file__).parent / "static" / "image_and_array.css"
 
 
-class TldrawMakeStaticPNG(anywidget.AnyWidget):
+class TldrawMakeStaticTldraw(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_png.js"
-    _css = pathlib.Path(__file__).parent / "static" / "makestatic_png.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.css"
     value = Int(0).tag(sync=True)
 
 
@@ -89,13 +89,32 @@ class TldrawMakeStaticSVG(anywidget.AnyWidget):
     value = Int(0).tag(sync=True)
 
 
-class TldrawMakeStaticTldraw(anywidget.AnyWidget):
+class TldrawMakeStaticPNG(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.js"
-    _css = pathlib.Path(__file__).parent / "static" / "makestatic_tldraw.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_png.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_png.css"
     value = Int(0).tag(sync=True)
+
+
+class TldrawMakeStaticToMarkdown(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
+
+    _esm = pathlib.Path(__file__).parent / "static" / "makestatic_to_markdown.js"
+    _css = pathlib.Path(__file__).parent / "static" / "makestatic_to_markdown.css"
+    value = Int(0).tag(sync=True)
+
+    @observe("snapshot")
+    def _observe_count(self, change):
+        result = "hiii"
+
+        from ipylab import JupyterFrontEnd
+
+        app = JupyterFrontEnd()
+        app.commands.execute("notebook:insert-cell-below")
+        app.commands.execute("notebook:replace-selection", {"text": result})
 
 
 class MakeReal(anywidget.AnyWidget):
@@ -106,7 +125,7 @@ class MakeReal(anywidget.AnyWidget):
         return mimebundle
 
     api_key = Unicode("KEY").tag(sync=True)
-    prompt = Unicode("").tag(sync=True) #empty string by default
+    prompt = Unicode("").tag(sync=True)  # empty string by default
 
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)

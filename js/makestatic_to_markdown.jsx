@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createRender, useModelState } from "@anywidget/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Tldraw,
@@ -9,7 +9,7 @@ import {
   getSvgAsImage,
 } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
-// import "./widget.css";
+import "./makereal.css";
 
 function blobToBase64(blob) {
   return new Promise((resolve, _) => {
@@ -18,8 +18,6 @@ function blobToBase64(blob) {
     reader.readAsDataURL(blob);
   });
 }
-
-
 
 function SaveButton({ onSave, setShowImage }) {
   const editor = useEditor();
@@ -32,10 +30,19 @@ function SaveButton({ onSave, setShowImage }) {
         right: 10,
         top: 10,
         backgroundColor: "#3399FF",
-            }}
+        color: "white",
+        padding: "10px 20px",
+        border: "none",
+        borderRadius: "5px",
+        fontSize: "16px",
+        cursor: "pointer",
+        outline: "none",
+      }}
       onClick={async () => {
         // const shapes = editor.selectedShapeIds
-        const shapes = editor.store.allRecords().filter(r => r.typeName === 'shape')
+        const shapes = editor.store
+          .allRecords()
+          .filter((r) => r.typeName === "shape");
 
         const svg = await editor.getSvg(shapes);
         const stringified = svg.outerHTML;
@@ -58,7 +65,7 @@ function SaveButton({ onSave, setShowImage }) {
         setShowImage(true); // Show the image after saving
       }}
     >
-      Convert to PNG
+      Paste to Markdown
     </button>
   );
 }
@@ -66,8 +73,19 @@ function SaveButton({ onSave, setShowImage }) {
 export const render = createRender(() => {
   const [width] = useModelState("width");
   const [height] = useModelState("height");
-  const [snapshotData, setSnapshotData] = useState("");
+  const [snapshotData, setSnapshotData] = useModelState("snapshot");
   const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (showImage) {
+      timer = setTimeout(() => {
+        setShowImage(false);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [showImage]);
 
   const handleMount = (editor) => {
     const id = createShapeId("hello");
@@ -94,21 +112,19 @@ export const render = createRender(() => {
       style={{
         display: "flex",
         position: "relative",
-        width: width,
-        height: height,
+        flexDirection: "column",
       }}
     >
-      {!showImage && (
+      <div
+        style={{
+          width: width,
+          height: height,
+        }}
+      >
         <Tldraw onMount={handleMount}>
           <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
         </Tldraw>
-      )}
-
-      {showImage && (
-        <div style={{ width: "100%", height: "100%", overflow: "auto" }}>
-          <img src={snapshotData} alt="Base64" />
-        </div>
-      )}
+      </div>
     </div>
   );
 });
