@@ -105,6 +105,7 @@ class TldrawMakeStaticToMarkdown(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "makestatic_to_markdown.js"
     _css = pathlib.Path(__file__).parent / "static" / "makestatic_to_markdown.css"
     value = Int(0).tag(sync=True)
+    snapshot = Unicode("").tag(sync=True)
 
     @observe("snapshot")
     def _observe_count(self, change):
