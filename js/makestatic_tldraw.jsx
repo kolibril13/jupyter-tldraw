@@ -59,7 +59,7 @@ function LoadButton() {
           cursor: "pointer",
         }}
       >
-        Load .txt state
+        Load .json state
       </label>
     </>
   );
@@ -94,7 +94,7 @@ function SaveButton({ onSave, setShowImage }) {
         downloadFile(stringified, "snapshot.json", "text/plain");
       }}
     >
-      Save .txt state
+      Save .json state
     </button>
   );
 }

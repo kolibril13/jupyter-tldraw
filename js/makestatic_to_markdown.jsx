@@ -125,12 +125,12 @@ export const render = createRender(() => {
           <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
         </Tldraw>
       </div>
-      {showImage && (
+      {/* {showImage && (
         <div style={{ fontSize: "30px" }}>
           OpenAI request takes about 5 seconds. <br />
           {snapshotData}
         </div>
-      )}{" "}
+      )}{" "} */}
     </div>
   );
 });
