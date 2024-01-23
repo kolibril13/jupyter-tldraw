@@ -49,7 +49,14 @@ For transparency, this is how the key is used:
 https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L47
 
 
+ 
+# Developer Instructions
 
+1. Clone Repo
+2. `npm i`
+3. Make virutal env `python3.11 -m venv .venv && source .venv/bin/activate`
+4. `pip install -e ".[dev]" `
+5. `npm run dev`
 
 
 
