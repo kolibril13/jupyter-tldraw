@@ -22,6 +22,7 @@ class TldrawWidget(anywidget.AnyWidget):
     value = Int(0).tag(sync=True)
 
 
+
 class TldrawImage(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "image.js"
     _css = pathlib.Path(__file__).parent / "static" / "image.css"
