@@ -15,7 +15,7 @@ export const render = createRender(() => {
           rotation: 0,
           typeName: "shape",
           props: {
-            color: "red",
+            color: "green",
             dash: "draw",
             fill: "none",
             isClosed: false,
@@ -23,22 +23,22 @@ export const render = createRender(() => {
               {
                 type: "straight",
                 points: [
-                  { x: 0, y: 0, z: 0.5 },
-                  { x: 100, y: -100, z: 0.5 },
+                  { x: 100, y: 100, z: 0.5 },
+                  { x: 200, y: 200, z: 0.5 },
                 ],
               },
               {
                 type: "straight",
                 points: [
-                  { x: 100, y: -100, z: 0.5 },
-                  { x: 300, y: 100, z: 0.5 },
+                  { x: 200, y: 400, z: 0.5 },
+                  { x: 400, y: 200, z: 0.5 },
                 ],
               },
               {
                 type: "straight",
                 points: [
-                  { x: 300, y: 100, z: 0.5 },
-                  { x: 400, y: 0, z: 0.5 },
+                  { x: 400, y: 200, z: 0.5 },
+                  { x: 500, y: 100, z: 0.5 },
                 ],
               },
             ],
