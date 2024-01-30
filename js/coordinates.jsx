@@ -7,13 +7,42 @@ import { createRender, useModelState } from "@anywidget/react";
 export const render = createRender(() => {
   const [app, setApp] = React.useState(null);
   const [points] = useModelState("points");
+
   const [pointsNew] = useModelState("points_new");
 
-
   // pointsNew has still to be figured out
-  
+
   React.useEffect(() => {
     if (app) {
+
+      console.log(pointsNew)
+      let my_points = [
+        {
+          x: 100,
+          y: 200,
+          z: 0.5,
+        },
+        {
+          x: 100,
+          y: 300,
+          z: 0.5,
+        },
+        {
+          x: 200,
+          y: 300,
+          z: 0.5,
+        },
+        {
+          x: 50,
+          y: 50,
+          z: 0.5,
+        },
+        {
+          x: 500,
+          y: 50,
+          z: 0.5,
+        },
+      ];
       app.createShapes([
         {
           type: "draw",
@@ -25,34 +54,18 @@ export const render = createRender(() => {
             dash: "draw",
             fill: "none",
             isClosed: false,
+
             segments: [
               {
-                type: "straight",
-                points: [
-                  { x: 100, y: 100, z: 0.5 },
-                  { x: 200, y: 200, z: 0.5 },
-                ],
-              },
-              {
-                type: "straight",
-                points: [
-                  { x: 200, y: 400, z: 0.5 },
-                  { x: 400, y: 200, z: 0.5 },
-                ],
-              },
-              {
-                type: "straight",
-                points: [
-                  { x: 400, y: 200, z: 0.5 },
-                  { x: 500, y: 100, z: 0.5 },
-                ],
+                type: "free",
+                points: my_points,
               },
             ],
           },
         },
       ]);
     }
-  }, [app, points]); // This will trigger the effect when `app` changes.
+  }, [app, points, pointsNew]); // This will trigger the effect when `app` changes.
 
   return (
     <div
