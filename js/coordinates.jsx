@@ -1,17 +1,23 @@
 import * as React from "react";
 
-import { createRender } from "@anywidget/react";
 import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
+import { createRender, useModelState } from "@anywidget/react";
 
 export const render = createRender(() => {
   const [app, setApp] = React.useState(null);
+  const [points] = useModelState("points");
+  const [pointsNew] = useModelState("points_new");
 
+
+  // pointsNew has still to be figured out
+  
   React.useEffect(() => {
     if (app) {
       app.createShapes([
         {
           type: "draw",
+          id: "shape:mypoints",
           rotation: 0,
           typeName: "shape",
           props: {
@@ -46,7 +52,7 @@ export const render = createRender(() => {
         },
       ]);
     }
-  }, [app]); // This will trigger the effect when `app` changes.
+  }, [app, points]); // This will trigger the effect when `app` changes.
 
   return (
     <div
