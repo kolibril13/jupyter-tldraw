@@ -62,6 +62,14 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+
+
+
+### 2.0.8
+
+* Update version to @tldraw/tldraw@2.0.2
+
+
 ### 2.0.7
 
 *increase number of output tokens to 4096
