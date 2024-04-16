@@ -63,7 +63,9 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 # Changelog
 
 
+### 2.0.9 & 2.0.10
 
+* Setting up hatch correctly
 
 ### 2.0.8
 
