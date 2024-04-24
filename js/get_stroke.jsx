@@ -12,7 +12,15 @@ const render = createRender(() => {
     <>
       <div
         style={{
-
+          position: "relative",
+          top: "0px",
+          fontSize: "40px",
+        }}
+      >
+        Length of currently drawn stroke: {length}
+      </div>
+      <div
+        style={{
           position: "relative",
           width: "500px",
           height: "500px",
@@ -35,15 +43,6 @@ const render = createRender(() => {
             });
           }}
         />
-      </div>
-      <div
-        style={{
-          position: "relative",
-          top: "-10px",
-          fontSize: "40px",
-        }}
-      >
-        Length of currently drawn stroke: {length}
       </div>
     </>
   );
