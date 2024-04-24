@@ -62,6 +62,9 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.11
+
+* updating npm install @tldraw/tldraw@2.1.0
 
 ### 2.0.9 & 2.0.10
 
