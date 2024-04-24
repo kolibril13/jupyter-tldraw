@@ -4,7 +4,7 @@ import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import { createRender, useModelState } from "@anywidget/react";
 
-export const render = createRender(() => {
+const render = createRender(() => {
   const [app, setApp] = React.useState(null);
   const [pointsNew] = useModelState("points_new");
   React.useEffect(() => {
@@ -51,3 +51,6 @@ export const render = createRender(() => {
     </div>
   );
 });
+
+
+export default { render };

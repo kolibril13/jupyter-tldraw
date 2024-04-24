@@ -50,7 +50,7 @@ function SaveButton({ onSave, setShowImage }) {
   );
 }
 
-export const render = createRender(() => {
+const render = createRender(() => {
   const [width] = useModelState("width");
   const [height] = useModelState("height");
   const [snapshotData, setSnapshotData] = useState("");
@@ -99,3 +99,5 @@ export const render = createRender(() => {
     </div>
   );
 });
+
+export default { render };

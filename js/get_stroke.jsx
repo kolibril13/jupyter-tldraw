@@ -4,7 +4,7 @@ import { createRender, useModelState } from "@anywidget/react";
 import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import "./widget.css";
-export const render = createRender(() => {
+const render = createRender(() => {
   const [width] = useModelState("width");
   const [height] = useModelState("height");
 
@@ -24,3 +24,4 @@ export const render = createRender(() => {
     </div>
   );
 });
+export default { render };

@@ -4,7 +4,7 @@ import { createRender, useModelState } from "@anywidget/react";
 import { AssetRecordType, Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 
-export const render = createRender(() => {
+const render = createRender(() => {
   const [app, setApp] = React.useState(null);
 
   React.useEffect(() => {
@@ -52,3 +52,5 @@ export const render = createRender(() => {
     </div>
   );
 });
+
+export default { render };
