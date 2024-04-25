@@ -32,7 +32,7 @@ const render = createRender(() => {
             editor.store.listen(() => {
               if (editor.isIn("draw.drawing")) {
                 console.log("Drawing");
-      
+
                 let ob = editor.getCurrentPageShapesSorted();
                 if (ob.length === 0) return;
                 let lastElement = ob[ob.length - 1];
@@ -42,7 +42,6 @@ const render = createRender(() => {
                   lastElement.props.segments[0].points
                 ) {
                   setLength(lastElement.props.segments[0].points.length);
-
 
                   let points = lastElement.props.segments[0].points;
                   let transform = editor.getShapePageTransform(lastElement.id);
@@ -63,7 +62,6 @@ const render = createRender(() => {
             });
           }}
         />
-        ; ; ;
       </div>
     </>
   );
