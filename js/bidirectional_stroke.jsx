@@ -9,36 +9,47 @@ const render = createRender(() => {
   const [length, setLength] = useModelState("length");
   const [coord, setCoord] = useModelState("coord");
   const [base64img] = useModelState("base64img");
+  const [app, setApp] = React.useState(null);
+  const assetId = AssetRecordType.createId();
 
-  const handleMount = (editor) => {
-    const assetId = AssetRecordType.createId();
-    const placeholderAsset = {
-      id: assetId,
-      typeName: "asset",
-      type: "image",
-      props: {
-        w: 400,
-        h: 340,
-        name: "card-repo.png",
-        isAnimated: false,
-        mimeType: null,
-        src: base64img,
-      },
-      meta: {},
-    };
-
-    editor.createAssets([placeholderAsset]);
-
-    editor.createShapes([
-      {
+  React.useEffect(() => {
+    console.log("heeeloooo");
+    console.log(app);
+    console.log(base64img);
+    if (app && base64img) {
+      console.log("hi");
+      const placeholderAsset = {
+        id: assetId,
+        typeName: "asset",
         type: "image",
         props: {
-          w: 300,
-          h: 240,
-          assetId: assetId,
+          w: 400,
+          h: 340,
+          name: "card-repo.png",
+          isAnimated: false,
+          mimeType: null,
+          src: base64img,
         },
-      },
-    ]);
+        meta: {},
+      };
+
+      app.createAssets([placeholderAsset]);
+
+      app.createShapes([
+        {
+          type: "image",
+          props: {
+            w: 300,
+            h: 240,
+            assetId: assetId,
+          },
+        },
+      ]);
+    }
+  }, [app, base64img]);
+
+  const handleMount = (editor) => {
+    setApp(editor);
 
     editor.store.listen(() => {
       if (editor.isIn("draw.drawing")) {
