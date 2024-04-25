@@ -6,17 +6,17 @@ import { AssetRecordType, Tldraw, createShapeId } from "tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import "./widget.css";
 const render = createRender(() => {
-  const [length, setLength] = useModelState("length");
-  const [coord, setCoord] = useModelState("coord");
   const [base64img] = useModelState("base64img");
+  const [length, setLength] = useModelState("length");
+  const [isDrawing, setIsDrawing] = useModelState("isDrawing");
+  const [coord, setCoord] = useModelState("coord");
+
   const [app, setApp] = React.useState(null);
+
   const assetId = AssetRecordType.createId();
 
   React.useEffect(() => {
-    console.log("heeeloooo");
-    console.log(app);
-    console.log(base64img);
-    if (app && base64img) {
+    if (app && base64img && !isDrawing) {
       console.log("hi");
       const placeholderAsset = {
         id: assetId,
@@ -50,9 +50,9 @@ const render = createRender(() => {
 
   const handleMount = (editor) => {
     setApp(editor);
-
     editor.store.listen(() => {
       if (editor.isIn("draw.drawing")) {
+        setIsDrawing(true);
         console.log("Drawing");
 
         let ob = editor.getCurrentPageShapesSorted();
@@ -80,6 +80,10 @@ const render = createRender(() => {
           console.log(transformedPoints);
           setCoord(transformedPoints);
         }
+      }
+      if (!editor.isIn("draw.drawing")) {
+        setIsDrawing(false);
+        console.log("Idle");
       }
     });
   };
