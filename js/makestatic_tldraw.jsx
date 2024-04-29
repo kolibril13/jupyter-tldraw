@@ -132,7 +132,7 @@ const render = createRender(() => {
         height: height,
       }}
     >
-      <Tldraw onMount={handleMount}>
+      <Tldraw autoFocus={false} onMount={handleMount}>
         <SaveButton />
         <LoadButton />
       </Tldraw>

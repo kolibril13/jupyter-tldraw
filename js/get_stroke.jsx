@@ -27,7 +27,7 @@ const render = createRender(() => {
           height: "500px",
         }}
       >
-        <Tldraw
+        <Tldraw autoFocus={false}
           onMount={(editor) => {
             editor.store.listen(() => {
               if (editor.isIn("draw.drawing")) {

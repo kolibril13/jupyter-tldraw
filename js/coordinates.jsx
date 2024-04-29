@@ -47,7 +47,7 @@ const render = createRender(() => {
         height: "500px",
       }}
     >
-      <Tldraw onMount={setApp} />
+      <Tldraw autoFocus={false} onMount={setApp} />
     </div>
   );
 });

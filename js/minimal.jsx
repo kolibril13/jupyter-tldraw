@@ -15,7 +15,7 @@ const render = createRender(() => {
         height: height,
       }}
     >
-      <Tldraw />
+      <Tldraw autoFocus={false} />
     </div>
   );
 });

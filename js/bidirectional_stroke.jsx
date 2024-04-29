@@ -106,7 +106,7 @@ const render = createRender(() => {
           height: "500px",
         }}
       >
-        <Tldraw onMount={handleMount}></Tldraw>
+        <Tldraw autoFocus={false} onMount={handleMount}></Tldraw>
       </div>
     </>
   );

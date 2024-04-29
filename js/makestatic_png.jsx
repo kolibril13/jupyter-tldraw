@@ -99,7 +99,7 @@ const render = createRender(() => {
       }}
     >
       {!showImage && (
-        <Tldraw onMount={handleMount}>
+        <Tldraw autoFocus={false} onMount={handleMount}>
           <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
         </Tldraw>
       )}

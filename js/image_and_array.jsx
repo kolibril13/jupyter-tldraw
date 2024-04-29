@@ -69,7 +69,7 @@ const render = createRender(() => {
         height: "500px",
       }}
     >
-      <Tldraw onMount={handleMount} showMenu={false} showPages={false} />
+      <Tldraw autoFocus={false} onMount={handleMount} showMenu={false} showPages={false} />
     </div>
   );
 });
