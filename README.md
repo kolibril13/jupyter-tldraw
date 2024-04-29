@@ -62,6 +62,12 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.12
+
+* fix cell selection bug by autoFocus={false}
+* npm i @tldraw/tldraw@2.1.3
+
+
 ### 2.0.11
 
 * updating npm install @tldraw/tldraw@2.1.0
