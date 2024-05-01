@@ -66,6 +66,8 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 ### 2.0.13
 
 * fix svgAsImage problem
+* update makereal to gpt4-turbo
+* run_next_cell parameter
 
 ### 2.0.12
 
