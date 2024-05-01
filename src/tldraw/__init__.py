@@ -3,7 +3,7 @@ import pathlib
 from pathlib import Path
 import base64
 import anywidget
-from traitlets import Unicode, Int, observe
+from traitlets import Unicode, Int, observe, Bool
 import io
 from .prompt import sent_request_to_openai
 
@@ -138,6 +138,8 @@ class MakeReal(anywidget.AnyWidget):
     api_key = Unicode("KEY").tag(sync=True)
     prompt = Unicode("").tag(sync=True)  # empty string by default
 
+    run_next_cell = Bool(False).tag(sync=True)
+
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
     _esm = pathlib.Path(__file__).parent / "static" / "makereal.js"
@@ -172,3 +174,6 @@ class MakeReal(anywidget.AnyWidget):
         app = JupyterFrontEnd()
         app.commands.execute("notebook:insert-cell-below")
         app.commands.execute("notebook:replace-selection", {"text": result})
+
+        if self.run_next_cell:
+            app.commands.execute ('notebook:run-cell')
