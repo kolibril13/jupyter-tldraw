@@ -62,6 +62,11 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+
+### 2.0.13
+
+* fix svgAsImage problem
+
 ### 2.0.12
 
 * fix cell selection bug by autoFocus={false}

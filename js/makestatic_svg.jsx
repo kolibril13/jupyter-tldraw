@@ -32,16 +32,16 @@ function SaveButton({ onSave, setShowImage }) {
         backgroundColor: "lightyellow",
       }}
       onClick={async () => {
-        // const shapes = editor.selectedShapeIds
-        const shapes = editor.store
-          .allRecords()
-          .filter((r) => r.typeName === "shape");
+        const shapeIds = editor.getCurrentPageShapeIds();
 
-        const svg = await editor.getSvg(shapes);
-        const stringified = svg.outerHTML;
-        console.log(stringified);
+        const svgResult = await editor.getSvgString([...shapeIds], {
+          scale: 1,
+          background: false,
+        });
 
-        onSave(stringified);
+        // console.log(svgResult.svg);
+
+        onSave(svgResult.svg);
         setShowImage(true); // Show the image after saving
       }}
     >

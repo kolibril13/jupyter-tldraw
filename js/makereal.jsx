@@ -40,27 +40,27 @@ function SaveButton({ onSave, setShowImage }) {
       }}
       onClick={async () => {
         // const shapes = editor.selectedShapeIds
-        const shapes = editor.store
-          .allRecords()
-          .filter((r) => r.typeName === "shape");
+        const shapeIds = editor.getCurrentPageShapeIds();
 
-        const svg = await editor.getSvg(shapes);
-        const stringified = svg.outerHTML;
-        const IS_SAFARI = /^((?!chrome|android).)*safari/i.test(
-          navigator.userAgent
-        );
-
-        const blob = await getSvgAsImage(svg, IS_SAFARI, {
-          type: "png",
-          quality: 1,
-          scale: 1.1,
+        const svgResult = await editor.getSvgString([...shapeIds], {
+          scale: 1,
+          background: false,
         });
 
+        const blob = await getSvgAsImage(
+          svgResult.svg,
+          editor.environment.isSafari,
+          {
+            type: "png",
+            quality: 1,
+            scale: 2,
+            width: svgResult.width,
+            height: svgResult.height,
+          }
+        );
+        // console.log(svgResult);
+        // console.log(blob);
         const base64img = await blobToBase64(blob);
-
-        console.log(base64img);
-        console.log(stringified);
-
         onSave(base64img);
         setShowImage(true); // Show the image after saving
       }}
