@@ -6,7 +6,7 @@ def sent_request_to_openai(prompt, base64_image, api_key):
     headers = {"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}
 
     payload = {
-        "model": "gpt-4-vision-preview",
+        "model": "gpt-4-turbo",
         "messages": [
             {
                 "role": "user",
