@@ -62,6 +62,9 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.14
+
+* update to GPT4o
 
 ### 2.0.13
 
