@@ -36,12 +36,6 @@ class TldrawWidgetCoordinates(anywidget.AnyWidget):
     points_new = List(List(Any())).tag(sync=True)
 
     
-
-
-t = TldrawWidgetCoordinates(
-    points_new=[[100, 200], [100, 300], [200, 300], [50, 50], [500, 50]]
-)
-t
 class TldrawImage(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "image.js"
     _css = pathlib.Path(__file__).parent / "static" / "image.css"
