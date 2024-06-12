@@ -26,8 +26,8 @@ class TldrawWidget(anywidget.AnyWidget):
 
 class TldrawWidgetCoordinates(anywidget.AnyWidget):
     path_root = pathlib.Path.cwd()
-    _esm = path_root / "src" / "tldraw" / "static" / "coordinates.js"
-    _css = path_root / "src" / "tldraw" / "static" / "coordinates.css"
+    _esm = pathlib.Path(__file__).parent / "static" / "coordinates.js"
+    _css = pathlib.Path(__file__).parent / "static" / "coordinates.css"
 
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
