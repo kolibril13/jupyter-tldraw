@@ -170,10 +170,15 @@ class MakeReal(anywidget.AnyWidget):
         print(result)
 
         from ipylab import JupyterFrontEnd
-
+        import time
         app = JupyterFrontEnd()
         app.commands.execute("notebook:insert-cell-below")
+        time.sleep(0.1)
         app.commands.execute("notebook:replace-selection", {"text": result})
 
         if self.run_next_cell:
             app.commands.execute ('notebook:run-cell')
+
+
+            from ipylab import JupyterFrontEnd
+
