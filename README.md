@@ -59,8 +59,15 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 5. `npm run dev`
 
 
-
 # Changelog
+
+### 2.0.16
+
+add TldrawWidgetCoordinates
+
+### 2.0.15
+
+* update tldraw version
 
 ### 2.0.14
 

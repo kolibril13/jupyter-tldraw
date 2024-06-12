@@ -3,7 +3,8 @@ import pathlib
 from pathlib import Path
 import base64
 import anywidget
-from traitlets import Unicode, Int, observe, Bool
+from traitlets import Unicode, Int, observe, Bool, List, Any
+
 import io
 from .prompt import sent_request_to_openai
 
@@ -23,6 +24,24 @@ class TldrawWidget(anywidget.AnyWidget):
 
 
 
+class TldrawWidgetCoordinates(anywidget.AnyWidget):
+    path_root = pathlib.Path.cwd()
+    _esm = path_root / "src" / "tldraw" / "static" / "coordinates.js"
+    _css = path_root / "src" / "tldraw" / "static" / "coordinates.css"
+
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
+    value = Int(0).tag(sync=True)
+    points = Int(100).tag(sync=True)
+    points_new = List(List(Any())).tag(sync=True)
+
+    
+
+
+t = TldrawWidgetCoordinates(
+    points_new=[[100, 200], [100, 300], [200, 300], [50, 50], [500, 50]]
+)
+t
 class TldrawImage(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "image.js"
     _css = pathlib.Path(__file__).parent / "static" / "image.css"
