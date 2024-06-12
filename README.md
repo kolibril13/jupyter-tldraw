@@ -61,6 +61,10 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+### 2.0.17
+
+small fix
+
 ### 2.0.16
 
 add TldrawWidgetCoordinates
