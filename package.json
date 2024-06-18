@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"dev": "npm run build -- --sourcemap=inline --watch",
-		"build": "esbuild js/*.jsx --minify --format=esm --bundle --outdir=src/tldraw/static"
+		"dev": "esbuild js/*.jsx --minify --format=esm --bundle --outdir=src/tldraw/static --sourcemap=inline --watch",
+		"build": "node node_config.mjs"
 	},
 	"dependencies": {
 		"@anywidget/react": "^0.0.2",

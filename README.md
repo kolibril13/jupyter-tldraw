@@ -61,6 +61,11 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
+## 2.0.19
+
+Experiment with node_config
+
+
 ### 2.0.17 & 2.0.18
 
 small fixes
