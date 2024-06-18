@@ -13,6 +13,8 @@ esbuild.build({
     "js/makestatic_tldraw.jsx",
     "js/makestatic_to_markdown.jsx",
     "js/minimal.jsx",
+    "js/debug.jsx",
+
   ],
   bundle: true,
   minify: true,

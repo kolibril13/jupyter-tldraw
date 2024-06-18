@@ -20,9 +20,18 @@ class TldrawWidget(anywidget.AnyWidget):
 
     _esm = pathlib.Path(__file__).parent / "static" / "minimal.js"
     _css = pathlib.Path(__file__).parent / "static" / "minimal.css"
-    value = Int(0).tag(sync=True)
 
 
+class TldrawDebug(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True) 
+    height = Int(300).tag(sync=True)
+    rec_width = Int(100).tag(sync=True)
+    rec_height = Int(100).tag(sync=True)
+    rec_x = Int(100).tag(sync=True)
+    rec_y = Int(100).tag(sync=True)
+
+    _esm = pathlib.Path(__file__).parent / "static" / "debug.js"
+    _css = pathlib.Path(__file__).parent / "static" / "debug.css"
 
 class TldrawWidgetCoordinates(anywidget.AnyWidget):
     path_root = pathlib.Path.cwd()
