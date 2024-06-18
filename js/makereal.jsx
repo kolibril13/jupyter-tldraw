@@ -71,8 +71,16 @@ function SaveButton({ onSave, setShowImage }) {
 }
 
 const render = createRender(() => {
+
   const [width] = useModelState("width");
   const [height] = useModelState("height");
+  const [recWidth] =  useModelState("rec_width");
+  const [recHeight] =  useModelState("rec_height");
+  const [recX] =  useModelState("rec_x");
+  const [recY] =  useModelState("rec_y");
+
+
+
   const [snapshotData, setSnapshotData] = useModelState("snapshot");
   const [showImage, setShowImage] = useState(false);
 
@@ -94,12 +102,12 @@ const render = createRender(() => {
       {
         id,
         type: "geo",
-        x: 128,
-        y: 128,
+        x: recX,
+        y: recY,
         props: {
           geo: "rectangle",
-          w: 100,
-          h: 100,
+          w: recWidth,
+          h: recHeight,
           dash: "draw",
           color: "blue",
           size: "m",

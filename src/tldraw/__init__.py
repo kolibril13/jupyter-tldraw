@@ -162,8 +162,13 @@ class MakeReal(anywidget.AnyWidget):
 
     run_next_cell = Bool(False).tag(sync=True)
 
-    width = Int(600).tag(sync=True)
+    width = Int(600).tag(sync=True) 
     height = Int(300).tag(sync=True)
+    rec_width = Int(100).tag(sync=True)
+    rec_height = Int(100).tag(sync=True)
+    rec_x = Int(100).tag(sync=True)
+    rec_y = Int(100).tag(sync=True)
+
     _esm = pathlib.Path(__file__).parent / "static" / "makereal.js"
     _css = pathlib.Path(__file__).parent / "static" / "makereal.css"
     snapshot = Unicode("").tag(sync=True)

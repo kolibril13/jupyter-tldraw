@@ -10,7 +10,6 @@ const render = createRender(() => {
   const [height] = useModelState("height");
   const [recWidth] =  useModelState("rec_width");
   const [recHeight] =  useModelState("rec_height");
-
   const [recX] =  useModelState("rec_x");
   const [recY] =  useModelState("rec_y");
 
