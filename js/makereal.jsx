@@ -6,7 +6,8 @@ import {
   Tldraw,
   useEditor,
   createShapeId,
-  getSvgAsImage,
+  exportToBlob,
+  FileHelpers,
 } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import "./makereal.css";
@@ -41,26 +42,13 @@ function SaveButton({ onSave, setShowImage }) {
       onClick={async () => {
         // const shapes = editor.selectedShapeIds
         const shapeIds = editor.getCurrentPageShapeIds();
-
-        const svgResult = await editor.getSvgString([...shapeIds], {
-          scale: 1,
-          background: false,
+        const blob = await exportToBlob({
+          editor,
+          ids: [...shapeIds],
+          format: "png",
+          opts: { background: false },
         });
-
-        const blob = await getSvgAsImage(
-          svgResult.svg,
-          editor.environment.isSafari,
-          {
-            type: "png",
-            quality: 1,
-            scale: 2,
-            width: svgResult.width,
-            height: svgResult.height,
-          }
-        );
-        // console.log(svgResult);
-        // console.log(blob);
-        const base64img = await blobToBase64(blob);
+        const base64img = await FileHelpers.blobToDataUrl(blob);
         onSave(base64img);
         setShowImage(true); // Show the image after saving
       }}
@@ -71,15 +59,12 @@ function SaveButton({ onSave, setShowImage }) {
 }
 
 const render = createRender(() => {
-
   const [width] = useModelState("width");
   const [height] = useModelState("height");
-  const [recWidth] =  useModelState("rec_width");
-  const [recHeight] =  useModelState("rec_height");
-  const [recX] =  useModelState("rec_x");
-  const [recY] =  useModelState("rec_y");
-
-
+  const [recWidth] = useModelState("rec_width");
+  const [recHeight] = useModelState("rec_height");
+  const [recX] = useModelState("rec_x");
+  const [recY] = useModelState("rec_y");
 
   const [snapshotData, setSnapshotData] = useModelState("snapshot");
   const [showImage, setShowImage] = useState(false);
