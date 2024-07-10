@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tldraw"
-version = "2.2.4"
+version = "2.2.5"
 dependencies = ["anywidget", "ipylab", "requests", "ipykernel"]
 description = "Tldraw for Jupyter"
 license = "MIT"
@@ -19,7 +19,7 @@ features = ["dev"]
 
 [tool.hatch.build]
 only-packages = true
-artifacts = ["src/tldraw/static/*"]
+artifacts = ["src/tldraw/static/*", "js/*"]
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
