@@ -61,7 +61,11 @@ https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L
 
 # Changelog
 
-##
+## 2.4.3
+
+
+* update npm install @tldraw/tldraw@2.4.3
+
 
 * include  "package.json", "node_config.mjs" to pypi, so that conda works as well.
 
