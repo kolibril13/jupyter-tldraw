@@ -215,4 +215,4 @@ class ReactiveColorPicker(anywidget.AnyWidget):
 
     _esm = pathlib.Path(__file__).parent / "static" / "reactive_color_picker.js"
     _css = pathlib.Path(__file__).parent / "static" / "reactive_color_picker.css"
-    length = Int(0).tag(sync=True)
+    color = Any([]).tag(sync=True)

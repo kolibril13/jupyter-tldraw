@@ -6,7 +6,7 @@ import "@tldraw/tldraw/tldraw.css";
 import "./widget.css";
 
 const render = createRender(() => {
-    const [arrowProperties, setArrowProperties] = useState({});
+    const [arrowProperties, setArrowProperties] = useModelState("color");
   
     const handleMount = (editor) => {
       window.myTldrawEditor = editor;
@@ -32,10 +32,13 @@ const render = createRender(() => {
         const arrowBinding = editor.getBindingsInvolvingShape(arrowId);
         const endToIds = arrowBinding
         .filter(item => item.props.terminal === "end")
-        .map(item => item.toId);
+        .map(item => {
+            const shape = editor.getShape(item.toId);
+            return shape ? shape.props.color : null;
+        }).filter(color => color !== null);
+        
         if (endToIds) {
           setArrowProperties(endToIds);
-
         }
       });
     };
@@ -53,5 +56,3 @@ const render = createRender(() => {
   });
   
 export default { render };
-  
-
