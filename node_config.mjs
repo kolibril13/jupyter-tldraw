@@ -14,6 +14,8 @@ esbuild.build({
     "js/makestatic_to_markdown.jsx",
     "js/minimal.jsx",
     "js/debug.jsx",
+    "js/reactive_color_picker.jsx",
+
 
   ],
   bundle: true,

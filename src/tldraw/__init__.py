@@ -148,7 +148,13 @@ class TldrawMakeStaticToMarkdown(anywidget.AnyWidget):
         app.commands.execute('notebook:change-cell-to-markdown')
         app.commands.execute('notebook:render-all-markdown')
 
+class ReactiveColorPicker(anywidget.AnyWidget):
+    width = Int(600).tag(sync=True)
+    height = Int(300).tag(sync=True)
 
+    _esm = pathlib.Path(__file__).parent / "static" / "reactive_color_picker.js"
+    _css = pathlib.Path(__file__).parent / "static" / "reactive_color_picker.css"
+    color = Int(0).tag(sync=True)
 
 class MakeReal(anywidget.AnyWidget):
     # this makes sure that the private api key is not shown in the notebook, see https://github.com/jupyter-widgets/ipywidgets/issues/3875
