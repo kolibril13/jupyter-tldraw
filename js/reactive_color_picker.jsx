@@ -8,7 +8,7 @@ import "./widget.css";
 const render = createRender(() => {
   const [arrowProperties, setArrowProperties] = useModelState("color");
   const [editor, setEditor] = useState(null);
-  const previousColorsRef = useRef([]);
+  const previousColorsRef = useRef("");
   const arrowId = createShapeId("arrow");
 
   const handleMount = (editorInstance) => {
@@ -43,9 +43,11 @@ const render = createRender(() => {
         })
         .filter((color) => color !== null);
 
-      if (endToIds && JSON.stringify(endToIds) !== JSON.stringify(previousColorsRef.current)) {
-        setArrowProperties(endToIds);
-        previousColorsRef.current = endToIds;
+      const endToColorsString = endToIds ? endToIds.join(", ") : "";
+
+      if (endToColorsString !== previousColorsRef.current) {
+        setArrowProperties(endToColorsString);
+        previousColorsRef.current = endToColorsString;
       }
     },
     [editor, arrowId]
