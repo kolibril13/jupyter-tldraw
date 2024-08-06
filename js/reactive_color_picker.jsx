@@ -43,10 +43,11 @@ const render = createRender(() => {
         })
         .filter((color) => color !== null);
 
-      const endToColorsString = endToIds ? endToIds.join(", ") : "";
+      const endToColorsString = endToIds ? endToIds.join(",") : "";
 
       if (endToColorsString !== previousColorsRef.current) {
-        setArrowProperties(endToColorsString);
+        const colorToSet = endToColorsString || "grey";
+        setArrowProperties(colorToSet);
         previousColorsRef.current = endToColorsString;
       }
     },

@@ -30,20 +30,10 @@ def __():
 
 
 @app.cell
-def __(widget):
-    c = widget.color
-    type(c)
-    return c,
-
-
-@app.cell
-def __(c, np, opacity, plt, sizes, x, y):
+def __(np, opacity, plt, sizes, widget, x, y):
     fig, ax = plt.subplots()
-
     ax.set(xlim=(0, 8), xticks=np.arange(1, 8), ylim=(0, 8), yticks=np.arange(1, 8))
-
-    ax.scatter(x, y, s=sizes, color=c, alpha=opacity)
-
+    ax.scatter(x, y, s=sizes*5, color=widget.color, alpha=opacity)
     plt.show()
     return ax, fig
 
