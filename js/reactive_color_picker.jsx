@@ -15,20 +15,21 @@ const render = createRender(() => {
     window.myTldrawEditor = editorInstance;
     setEditor(editorInstance);
 
-    const shapes = [
-      { id: createShapeId("rectangle1"), type: "geo", x: 50, y: 50, props: { geo: "rectangle", w: 75, h: 37.5, dash: "draw", color: "blue", size: "m" } },
-      { id: createShapeId("rectangle2"), type: "geo", x: 150, y: 150, props: { geo: "rectangle", w: 50, h: 50, dash: "draw", color: "yellow", size: "m" } },
-      { id: createShapeId("rectangle3"), type: "geo", x: 210, y: 150, props: { geo: "rectangle", w: 100, h: 75, dash: "draw", color: "red", size: "m" } },
-      { id: arrowId, type: "arrow", x: 100, y: 100 },
-    ];
-
-    const bindings = [
-      { fromId: arrowId, toId: shapes[0].id, type: "arrow", props: { terminal: "start", normalizedAnchor: { x: 0.5, y: 0.5 }, isExact: false, isPrecise: false } },
-      { fromId: arrowId, toId: shapes[1].id, type: "arrow", props: { terminal: "end", normalizedAnchor: { x: 0.5, y: 0.5 }, isExact: false, isPrecise: false } },
-    ];
-
-    editorInstance.createShapes(shapes);
-    editorInstance.createBindings(bindings);
+      const shapes = [
+        { id: createShapeId("rectangle1"), type: "geo", x:  22, y: -47, props: { h:  90, w: 149, color: "black",  dash: "draw", fill: "none",  font: "draw", geo: "rectangle", size: "l",  text: "Color" } },
+        { id: createShapeId("rectangle2"), type: "geo", x: 124, y: 127, props: { h:  75, w: 100, color: "violet", dash: "draw", fill: "solid", font: "draw", geo: "rectangle", size: "xl"          } },
+        { id: createShapeId("rectangle3"), type: "geo", x: 211, y:  88, props: { h: 136, w: 114, color: "orange", dash: "draw", fill: "solid", font: "draw", geo: "rectangle", size: "xl"          } },
+        { id: createShapeId("rectangle4"), type: "geo", x: 265, y:  32, props: { h: 136, w: 114, color: "blue",   dash: "draw", fill: "solid", font: "draw", geo: "rectangle", size: "xl"          } },
+        { id: arrowId,      type: "arrow", x: 100, y: 100 }
+      ];
+  
+      const bindings = [
+        { fromId: arrowId, toId: shapes[0].id, type: "arrow", props: { terminal: "start", normalizedAnchor: { x: 0.5, y: 0.5 } } },
+        { fromId: arrowId, toId: shapes[1].id, type: "arrow", props: { terminal: "end",   normalizedAnchor: { x: 0.5, y: 0.5 } } }
+      ];
+  
+      editorInstance.createShapes(shapes);
+      editorInstance.createBindings(bindings);
   };
 
   useValue(
