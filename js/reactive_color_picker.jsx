@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { createRender, useModelState } from "@anywidget/react";
 import { Tldraw, createShapeId, useValue } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
@@ -8,6 +8,7 @@ import "./widget.css";
 const render = createRender(() => {
   const [arrowProperties, setArrowProperties] = useModelState("color");
   const [editor, setEditor] = useState(null);
+  const previousColorsRef = useRef([]);
   const arrowId = createShapeId("arrow");
 
   const handleMount = (editorInstance) => {
@@ -42,8 +43,9 @@ const render = createRender(() => {
         })
         .filter((color) => color !== null);
 
-      if (endToIds) {
+      if (endToIds && JSON.stringify(endToIds) !== JSON.stringify(previousColorsRef.current)) {
         setArrowProperties(endToIds);
+        previousColorsRef.current = endToIds;
       }
     },
     [editor, arrowId]

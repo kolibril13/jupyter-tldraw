@@ -41,11 +41,9 @@ def __(c, np, opacity, plt, sizes, x, y):
     color = c[0]
     fig, ax = plt.subplots()
 
-    ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
-           ylim=(0, 8), yticks=np.arange(1, 8))
+    ax.set(xlim=(0, 8), xticks=np.arange(1, 8), ylim=(0, 8), yticks=np.arange(1, 8))
 
-
-    ax.scatter(x, y, s=sizes, c=color, alpha=opacity)
+    ax.scatter(x, y, s=sizes, color=color, alpha=opacity)
 
     plt.show()
     return ax, color, fig
