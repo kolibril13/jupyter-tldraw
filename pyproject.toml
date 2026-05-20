@@ -7,15 +7,11 @@ name = "tldraw"
 version = "3.0.0"
 dependencies = ["anywidget", "ipylab", "ipykernel"]
 description = "Tldraw for Jupyter"
+requires-python = ">=3.13"
 license = "MIT"
 readme = "README.md"
-[project.optional-dependencies]
+[dependency-groups]
 dev = ["watchfiles", "jupyterlab"]
-
-# automatically add the dev feature to the default env (e.g., hatch shell)
-[tool.hatch.envs.default]
-features = ["dev"]
-
 
 [tool.hatch.build]
 only-packages = true
@@ -23,8 +19,7 @@ artifacts = ["src/tldraw/static/*", "js/*", "package.json", "node_config.mjs"]
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
-# ensured-targets = ["src/tldraw/static/widget.js"]
-# skip-if-exists = ["src/tldraw/static/widget.js"]
+skip-if-exists = ["src/tldraw/static/minimal.js"]
 dependencies = ["hatch-jupyter-builder>=0.5.0"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]

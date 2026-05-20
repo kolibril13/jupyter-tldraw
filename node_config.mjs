@@ -7,7 +7,6 @@ esbuild.build({
     "js/get_stroke.jsx",
     "js/image_and_array.jsx",
     "js/image.jsx",
-    "js/makereal.jsx",
     "js/makestatic_png.jsx",
     "js/makestatic_svg.jsx",
     "js/makestatic_tldraw.jsx",
