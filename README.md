@@ -1,210 +1,53 @@
 # Jupyter Tldraw
+
 [![PyPI version](https://img.shields.io/pypi/v/tldraw.svg)](https://pypi.org/project/tldraw/)
+
+A [tldraw](https://tldraw.com) whiteboard as a Jupyter widget, built with [anywidget](https://anywidget.dev).
+
 <img width="946" alt="image" src="https://github.com/kolibril13/jupyter-tldraw/assets/44469195/8ba7e662-1f35-4e3b-b342-6d9fd3079e22">
 
+## Install & run
 
-Installation:
-```
+```sh
 uv run --with jupyterlab --with tldraw jupyter lab
 ```
 
-## Example
-```
+## Examples
+
+Three example notebooks are included:
+
+| Notebook | Widget | What it shows |
+| --- | --- | --- |
+| [`basic.ipynb`](basic.ipynb) | `TldrawWidget` | A plain tldraw canvas embedded in a cell. |
+| [`monkey.ipynb`](monkey.ipynb) | `MonkeyWidget` | A 🐒 emoji on the canvas; its `x` / `y` are synced as traitlets, so you can `.observe(...)` the position from Python. |
+| [`stroke.ipynb`](stroke.ipynb) | `StrokeWidget` | Captures the currently-drawn freehand stroke as a `[[x, y], ...]` list in Python via the `stroke` traitlet. |
+
+Minimal usage:
+
+```python
 from tldraw import TldrawWidget
 t = TldrawWidget()
 t
 ```
 
+## Developer setup
 
-
-# Developer Instructions
-
-1. Clone Repo
+1. Clone the repo
 2. `npm i`
 3. `uv sync`
-4. `npm run dev`
+4. `npm run dev` (esbuild watches `js/*.jsx` and rebuilds bundles into `src/tldraw/static/`)
+5. `uv run jupyter lab`
 
-## Hot module reload (HMR)
+### Hot module reload
 
-While iterating on the JSX widgets, you can have edits show up live in an
-already-open notebook without re-running the cell. Two things need to be in
-place:
+Put this at the top of any dev notebook, *before* importing the widget:
 
-1. **`npm run dev`** is running — esbuild rebuilds `src/tldraw/static/*.js`
-   on every save.
-2. **At the top of the notebook, before importing the widget**, set the
-   anywidget HMR env var and enable autoreload:
+```python
+%env ANYWIDGET_HMR=1
+%load_ext autoreload
+%autoreload 2
+```
 
-   ```python
-   %env ANYWIDGET_HMR=1
-   %load_ext autoreload
-   %autoreload 2
-   ```
+`ANYWIDGET_HMR=1` makes anywidget watch the `_esm` / `_css` files; `%autoreload 2` does the same on the Python side. Combined with `npm run dev`, edits to `js/*.jsx` swap into the running widget without re-running the cell.
 
-   `ANYWIDGET_HMR=1` tells anywidget to watch the `_esm` / `_css` files for
-   changes; `%autoreload 2` does the same on the Python side. See
-   `monkey.ipynb` for a working example — try editing the emoji in
-   `js/monkey.jsx` and watch it swap in the running widget.
-
-   Note: anywidget reads `ANYWIDGET_HMR` at import time, so if you forgot
-   to set it before importing, restart the kernel once.
-
-
-
-
-
-# Changelog
-
-# 5.0.0
-
-tldraw5.0
-
-# 3.0.0
-
-update npm install @tldraw/tldraw@3.0.0
-
-
-
-# 2.4.6
-
-update npm install @tldraw/tldraw@2.4.5
-TldrawSetImage implementation
-
-## 2.4.5
-
-* fix path
-  
-## 2.4.4
-
-* better TldrawWidgetCoordinates 
-
-## 2.4.3
-
-
-* update npm install @tldraw/tldraw@2.4.3
-* add ReactiveColorPicker
-
-
-## 2.2.5
-
-* include  "package.json", "node_config.mjs" to pypi, so that conda works as well.
-* update to tldraw 2.2.5
-* include jsx files on pypi, so that conda can build more easily.
-
-## 2.2.4
-
-update to tldraw 2.2.4
-
-## 2.0.20
-
-Add debug example
-
-## 2.0.19
-
-Experiment with node_config
-
-
-### 2.0.17 & 2.0.18
-
-small fixes
-
-### 2.0.16
-
-add TldrawWidgetCoordinates
-
-### 2.0.15
-
-* update tldraw version
-
-### 2.0.13
-
-* fix svgAsImage problem
-
-### 2.0.12
-
-* fix cell selection bug by autoFocus={false}
-* npm i @tldraw/tldraw@2.1.3
-
-
-### 2.0.11
-
-* updating npm install @tldraw/tldraw@2.1.0
-
-### 2.0.9 & 2.0.10
-
-* Setting up hatch correctly
-
-### 2.0.8
-
-* Update version to @tldraw/tldraw@2.0.2
-
-
-### 2.0.4
-
-Add experimental SVG/PNG export.  
-Add experimental .txt export.
-
-
-## 2.0.3
-
-Update to version `2.0.0-alpha.19`
-
-
-## 2.0.2
-
-Add experimental TldrawImageArray
-
-## 2.0.1
-
-Switch to new version: `@tldraw/tldraw@2.0.0-canary.b9d82466295e` (Version from 6th November2023)
-
-<!-- npm install @tldraw/tldraw@2.0.0-canary.b9d82466295e -->
-
-## 2.0.0
-
-* simplify to minimal template
-
-
-## 1.0.0
-
-* Rename notebooks, and prepare 2.0.0 release.
-
-## 0.1.5
-
-* add .venv to gitignore, so that it's not uploaded to pypi by hatch build.
-
-## 0.1.4
-
-* Add experimental TldrawSegmentation
-
-
-## 0.1.3
-* format toml
-
-## 0.1.2
-
-* replace ipyreact backend with anywidget backend.
-  * this will make this package more reliable, because all js and css is shipped via pip and not anymore via cdn.
-* Remove JupyterLite build.
-* Remove experimental files.
-
-
-## 0.1.1
-
-* add update_plot in TldrawMatplotlib
-
-## 0.1.0
-
-* Added TldrawMatplotlib
-
-## 0.0.3
-
-* refactor readme
-* add jupyterlite demo
-## 0.0.2
-
-* refactor code
-
-## 0.0.1
-
-* init setup
+> anywidget reads `ANYWIDGET_HMR` at import time — if you forgot to set it first, restart the kernel once.

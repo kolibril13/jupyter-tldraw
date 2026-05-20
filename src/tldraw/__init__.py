@@ -8,13 +8,15 @@ try:
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
+_STATIC = pathlib.Path(__file__).parent / "static"
+
 
 class TldrawWidget(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "minimal.js"
-    _css = pathlib.Path(__file__).parent / "static" / "minimal.css"
+    _esm = _STATIC / "basic.js"
+    _css = _STATIC / "basic.css"
 
 
 class MonkeyWidget(anywidget.AnyWidget):
@@ -23,15 +25,14 @@ class MonkeyWidget(anywidget.AnyWidget):
     x = Float(0).tag(sync=True)
     y = Float(0).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "monkey.js"
-    _css = pathlib.Path(__file__).parent / "static" / "monkey.css"
+    _esm = _STATIC / "monkey.js"
+    _css = _STATIC / "monkey.css"
 
 
 class StrokeWidget(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)
     height = Int(300).tag(sync=True)
     stroke = List().tag(sync=True)
-    length = Int(0).tag(sync=True)
 
-    _esm = pathlib.Path(__file__).parent / "static" / "get_stroke.js"
-    _css = pathlib.Path(__file__).parent / "static" / "get_stroke.css"
+    _esm = _STATIC / "stroke.js"
+    _css = _STATIC / "stroke.css"

@@ -19,7 +19,7 @@ artifacts = ["src/tldraw/static/*", "js/*", "package.json", "node_config.mjs"]
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
-skip-if-exists = ["src/tldraw/static/minimal.js"]
+skip-if-exists = ["src/tldraw/static/basic.js"]
 dependencies = ["hatch-jupyter-builder>=0.5.0"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]

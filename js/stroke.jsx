@@ -8,10 +8,8 @@ const render = createRender(() => {
   const [width] = useModelState("width");
   const [height] = useModelState("height");
   const [, setStroke] = useModelState("stroke");
-  const [, setLength] = useModelState("length");
 
   const handleMount = (editor) => {
-    window.editor = editor;
     editor.store.listen(() => {
       if (!editor.isIn("draw.drawing")) return;
 
@@ -24,13 +22,12 @@ const render = createRender(() => {
       if (!geo?.vertices?.length) return;
 
       const transform = editor.getShapePageTransform(last.id);
-      const transformed = geo.vertices.map((p) => {
-        const tp = transform.applyToPoint(p);
-        return [tp.x, tp.y];
-      });
-
-      setLength(transformed.length);
-      setStroke(transformed);
+      setStroke(
+        geo.vertices.map((p) => {
+          const tp = transform.applyToPoint(p);
+          return [tp.x, tp.y];
+        })
+      );
     });
   };
 

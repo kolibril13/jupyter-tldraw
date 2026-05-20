@@ -2,9 +2,9 @@ import esbuild from "esbuild";
 
 esbuild.build({
   entryPoints: [
-    "js/minimal.jsx",
+    "js/basic.jsx",
     "js/monkey.jsx",
-    "js/get_stroke.jsx",
+    "js/stroke.jsx",
   ],
   bundle: true,
   minify: true,
@@ -15,5 +15,3 @@ esbuild.build({
     'define.amd': 'false',
   },
 });
-
-// run with node node_config.mjs
