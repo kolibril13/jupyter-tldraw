@@ -24,11 +24,40 @@ t
 3. `uv sync`
 4. `npm run dev`
 
+## Hot module reload (HMR)
+
+While iterating on the JSX widgets, you can have edits show up live in an
+already-open notebook without re-running the cell. Two things need to be in
+place:
+
+1. **`npm run dev`** is running — esbuild rebuilds `src/tldraw/static/*.js`
+   on every save.
+2. **At the top of the notebook, before importing the widget**, set the
+   anywidget HMR env var and enable autoreload:
+
+   ```python
+   %env ANYWIDGET_HMR=1
+   %load_ext autoreload
+   %autoreload 2
+   ```
+
+   `ANYWIDGET_HMR=1` tells anywidget to watch the `_esm` / `_css` files for
+   changes; `%autoreload 2` does the same on the Python side. See
+   `monkey.ipynb` for a working example — try editing the emoji in
+   `js/monkey.jsx` and watch it swap in the running widget.
+
+   Note: anywidget reads `ANYWIDGET_HMR` at import time, so if you forgot
+   to set it before importing, restart the kernel once.
+
 
 
 
 
 # Changelog
+
+# 5.0.0
+
+tldraw5.0
 
 # 3.0.0
 

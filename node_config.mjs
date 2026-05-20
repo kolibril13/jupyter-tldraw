@@ -3,6 +3,7 @@ import esbuild from "esbuild";
 esbuild.build({
   entryPoints: [
     "js/minimal.jsx",
+    "js/monkey.jsx",
   ],
   bundle: true,
   minify: true,
