@@ -8,7 +8,7 @@ import {
   createShapeId,
 } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
-import "./makereal.css";
+import "./makestatic_to_markdown.css";
 
 function blobToBase64(blob) {
   return new Promise((resolve, _) => {
@@ -107,12 +107,6 @@ const render = createRender(() => {
           <SaveButton onSave={setSnapshotData} setShowImage={setShowImage} />
         </Tldraw>
       </div>
-      {/* {showImage && (
-        <div style={{ fontSize: "30px" }}>
-          OpenAI request takes about 5 seconds. <br />
-          {snapshotData}
-        </div>
-      )}{" "} */}
     </div>
   );
 });

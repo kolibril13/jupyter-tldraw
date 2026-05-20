@@ -3,11 +3,10 @@ import pathlib
 from pathlib import Path
 import base64
 import anywidget
-from traitlets import Unicode, Int, observe, Bool, List, Any,Tuple
+from traitlets import Unicode, Int, observe, List, Any, Tuple
 from traitlets import List, Dict, Unicode
 
 import io
-from .prompt import sent_request_to_openai
 
 try:
     __version__ = importlib.metadata.version("tldraw")
@@ -148,67 +147,6 @@ class TldrawMakeStaticToMarkdown(anywidget.AnyWidget):
         app.commands.execute("notebook:replace-selection", {"text": markdown_content})
         app.commands.execute('notebook:change-cell-to-markdown')
         app.commands.execute('notebook:render-all-markdown')
-
-class MakeReal(anywidget.AnyWidget):
-    # this makes sure that the private api key is not shown in the notebook, see https://github.com/jupyter-widgets/ipywidgets/issues/3875
-    def _repr_mimebundle_(self, *args, **kwargs):
-        mimebundle = super()._repr_mimebundle_(*args, **kwargs)
-        mimebundle[0]["text/plain"] = "MakeReal Widget"
-        return mimebundle
-
-    api_key = Unicode("KEY").tag(sync=True)
-    prompt = Unicode("").tag(sync=True)  # empty string by default
-
-    run_next_cell = Bool(False).tag(sync=True)
-
-    width = Int(600).tag(sync=True) 
-    height = Int(300).tag(sync=True)
-    rec_width = Int(100).tag(sync=True)
-    rec_height = Int(100).tag(sync=True)
-    rec_x = Int(100).tag(sync=True)
-    rec_y = Int(100).tag(sync=True)
-
-    _esm = pathlib.Path(__file__).parent / "static" / "makereal.js"
-    _css = pathlib.Path(__file__).parent / "static" / "makereal.css"
-    snapshot = Unicode("").tag(sync=True)
-
-    @observe("snapshot")
-    def _observe_count(self, change):
-        base64_image = change["new"]
-        base64_image = base64_image.replace("data:image/png;base64,", "")
-        if self.prompt == "":
-            self.prompt = """
-
-            You are an expert data scientist who specializes in creating scientific visualizations with matplotlib from low-fidelity wireframes. 
-            Your job is to accept low-fidelity designs and turn them into stunning visualization. When sent new designs, you should reply with your best attempt at a high fidelity working prototype as a single python file.
-
-            If you have to make calculations, you can use numpy.
-
-            The designs may include flow charts, diagrams, labels, arrows, sticky notes, screenshots of other applications, or even previous designs. Treat all of these as references for your prototype. Use your best judgement to determine what is an annotation and what should be included in the final result. Treat anything in the color red as an annotation rather than part of the design. Do NOT include any red elements or any other annotations in your final result.
-
-            Your prototype should look and feel much more complete and advanced than the wireframes provided. Flesh it out, make it real! Try your best to figure out what the data scientist wants and make it happen. If there are any questions or underspecified features, use what you know about applications, user experience, and scientific visualizations to "fill in the blanks". If you're unsure of how the designs should work, take a guess—it's better for you to get it wrong than to leave things incomplete. 
-
-            Remember: you love your data scientist and want them to be happy. The more complete and impressive your prototype, the happier they will be. Good luck, you've got this!
-            
-            Reply ONLY with python code.
-            """
-        result = sent_request_to_openai(self.prompt, base64_image, self.api_key)
-        print(result)
-
-        from ipylab import JupyterFrontEnd
-        import time
-        app = JupyterFrontEnd()
-        app.commands.execute("notebook:insert-cell-below")
-        time.sleep(0.1)
-        app.commands.execute("notebook:replace-selection", {"text": result})
-
-        if self.run_next_cell:
-            app.commands.execute ('notebook:run-cell')
-
-
-            from ipylab import JupyterFrontEnd
-
-
 
 class ReactiveColorPicker(anywidget.AnyWidget):
     width = Int(600).tag(sync=True)

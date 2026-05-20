@@ -20,36 +20,6 @@ t
 
 
 
-## MakeReal Example
-```
-from tldraw import MakeReal
-from api_key import api_key
-
-m = MakeReal(width=1002, height = 500, api_key = api_key)
-m
-```
-INFO: To use GPT4-Vision, you need an API key.
-
-### How do I get my API key?
-
-1. Create an OpenAI account at [OpenAI](https://platform.openai.com/)
-2.  In your Openai API account, navigate to **[Settings > Billing](https://platform.openai.com/account/billing/overview)** 
-3. Click **Add to credit balance**
-4. Add at least **$5** to your account
-5. Navigate to [API Keys](https://platform.openai.com/api-keys)
-6. Click **Create new secret key**
-7. Copy the key to your clipboard.
-8. Back on your jupyter-tldraw folder, paste the key into the API key into a new file called api_key.py 
-9. Add the key in this form: `api_key = "sk-*************************"`.
-10. Add  `api_key.py` into your gitignore. WARNING: Don't upload your API KEY on GitHub!
-
-Now you're ready to run!
-
-For transparency, this is how the key is used:  
-https://github.com/kolibril13/jupyter-tldraw/blob/main/src/tldraw/prompt.py#L5-L47
-
-
- 
 # Developer Instructions
 
 1. Clone Repo
@@ -121,15 +91,9 @@ add TldrawWidgetCoordinates
 
 * update tldraw version
 
-### 2.0.14
-
-* update to GPT4o
-
 ### 2.0.13
 
 * fix svgAsImage problem
-* update makereal to gpt4-turbo
-* run_next_cell parameter
 
 ### 2.0.12
 
@@ -150,24 +114,10 @@ add TldrawWidgetCoordinates
 * Update version to @tldraw/tldraw@2.0.2
 
 
-### 2.0.7
-
-*increase number of output tokens to 4096
-
-### 2.0.6
-
-Tweak prompt parameter.
-
-### 2.0.5
-
-Add requests module
-Tweak readme
-
 ### 2.0.4
 
 Add experimental SVG/PNG export.  
-Add experimental .txt export.  
-Add makereal
+Add experimental .txt export.
 
 
 ## 2.0.3
