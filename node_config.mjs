@@ -4,6 +4,7 @@ esbuild.build({
   entryPoints: [
     "js/minimal.jsx",
     "js/monkey.jsx",
+    "js/get_stroke.jsx",
   ],
   bundle: true,
   minify: true,
