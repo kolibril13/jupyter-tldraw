@@ -5,10 +5,7 @@
 
 Installation:
 ```
-python3.11 -m venv .venv
-pip install jupyterlab
-pip install tldraw
-jupyterlab   (or alternative VS Code Jupyter Lab)
+uv run --with jupyterlab --with tldraw jupyter lab
 ```
 
 ## Example
@@ -24,9 +21,8 @@ t
 
 1. Clone Repo
 2. `npm i`
-3. Make virutal env `python3.11 -m venv .venv && source .venv/bin/activate`
-4. `pip install -e ".[dev]" `
-5. `npm run dev`
+3. `uv sync`
+4. `npm run dev`
 
 
 
