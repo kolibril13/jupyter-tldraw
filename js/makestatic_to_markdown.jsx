@@ -6,8 +6,6 @@ import {
   Tldraw,
   useEditor,
   createShapeId,
-  exportToBlob,
-  FileHelpers,
 } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import "./makereal.css";
@@ -42,13 +40,8 @@ function SaveButton({ onSave, setShowImage }) {
       onClick={async () => {
         // const shapes = editor.selectedShapeIds
         const shapeIds = editor.getCurrentPageShapeIds();
-        const blob = await exportToBlob({
-          editor,
-          ids: [...shapeIds],
-          format: "png",
-          opts: { background: false },
-        });
-        const base64img = await FileHelpers.blobToDataUrl(blob);
+        const { blob } = await editor.toImage([...shapeIds], { format: "png", background: false });
+        const base64img = await blobToBase64(blob);
 
         onSave(base64img);
         setShowImage(true); // Show the image after saving

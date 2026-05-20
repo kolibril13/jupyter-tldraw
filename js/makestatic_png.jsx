@@ -6,14 +6,17 @@ import {
   Tldraw,
   useEditor,
   createShapeId,
-  exportToBlob,
-  FileHelpers,
 } from "@tldraw/tldraw";
 
 import "@tldraw/tldraw/tldraw.css";
-// import "./widget.css";
 
-
+function blobToBase64(blob) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
 
 function SaveButton({ onSave, setShowImage }) {
   const editor = useEditor();
@@ -29,13 +32,8 @@ function SaveButton({ onSave, setShowImage }) {
       }}
       onClick={async () => {
         const shapeIds = editor.getCurrentPageShapeIds();
-        const blob = await exportToBlob({
-          editor,
-          ids: [...shapeIds],
-          format: "png",
-          opts: { background: false },
-        });
-        const base64img = await FileHelpers.blobToDataUrl(blob);
+        const { blob } = await editor.toImage([...shapeIds], { format: "png", background: false });
+        const base64img = await blobToBase64(blob);
         onSave(base64img);
         setShowImage(true); // Show the image after saving
       }}
