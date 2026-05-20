@@ -27,7 +27,7 @@ const render = createRender(() => {
 
   return (
     <div style={{ width: "500px", height: "500px" }}>
-      <Tldraw autoFocus={false} onMount={setApp} />
+      <Tldraw autoFocus={false} onMount={setApp} licenseKey="tldraw-2026-07-31/WyJQUVo1VG1jbCIsWyIqIl0sMTYsIjIwMjYtMDctMzEiXQ.CkPyjP0F73725rI7q6mqJHPO1raBBtGrGMD4brtu2PaIXIywy8PRtij6fcPZHLws627nS5OuHc2OPquvffbhog" />
     </div>
   );
 });

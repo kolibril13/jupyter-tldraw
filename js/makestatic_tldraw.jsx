@@ -132,7 +132,7 @@ const render = createRender(() => {
         height: height,
       }}
     >
-      <Tldraw autoFocus={false} onMount={handleMount}>
+      <Tldraw autoFocus={false} onMount={handleMount} licenseKey="tldraw-2026-07-31/WyJQUVo1VG1jbCIsWyIqIl0sMTYsIjIwMjYtMDctMzEiXQ.CkPyjP0F73725rI7q6mqJHPO1raBBtGrGMD4brtu2PaIXIywy8PRtij6fcPZHLws627nS5OuHc2OPquvffbhog">
         <SaveButton />
         <LoadButton />
       </Tldraw>

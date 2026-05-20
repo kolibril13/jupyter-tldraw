@@ -48,7 +48,7 @@ const render = createRender(() => {
   }, [base64img, app]);
   return (
     <div style={{position: "relative", width: "900px", height: "500px" }}>
-      <Tldraw autoFocus={false} onMount={handleMount} showMenu={false} showPages={false} />
+      <Tldraw autoFocus={false} onMount={handleMount} showMenu={false} showPages={false} licenseKey="tldraw-2026-07-31/WyJQUVo1VG1jbCIsWyIqIl0sMTYsIjIwMjYtMDctMzEiXQ.CkPyjP0F73725rI7q6mqJHPO1raBBtGrGMD4brtu2PaIXIywy8PRtij6fcPZHLws627nS5OuHc2OPquvffbhog" />
     </div>
   );
 });

@@ -57,7 +57,7 @@ const render = createRender(() => {
   return (
     <>
       <div style={{ position: "relative", width: 500, height: 300 }}>
-        <Tldraw autoFocus={false} onMount={handleMount} />
+        <Tldraw autoFocus={false} onMount={handleMount} licenseKey="tldraw-2026-07-31/WyJQUVo1VG1jbCIsWyIqIl0sMTYsIjIwMjYtMDctMzEiXQ.CkPyjP0F73725rI7q6mqJHPO1raBBtGrGMD4brtu2PaIXIywy8PRtij6fcPZHLws627nS5OuHc2OPquvffbhog" />
       </div>
       {/* <div style={{ position: "relative", top: "0px", fontSize: "20px" }}>
         <pre>{JSON.stringify(arrowProperties, null, 2)}</pre>
