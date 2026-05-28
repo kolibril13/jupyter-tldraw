@@ -18,7 +18,7 @@ Three example notebooks are included:
 
 | Notebook | Widget | What it shows |
 | --- | --- | --- |
-| [`basic.ipynb`](basic.ipynb) | `TldrawWidget` | A plain tldraw canvas embedded in a cell. |
+| [`basic.ipynb`](basic.ipynb) | `TldrawWidget` | A plain tldraw canvas embedded in a cell. Supports optional autosave via `path=`. |
 | [`monkey.ipynb`](monkey.ipynb) | `MonkeyWidget` | A 🐒 emoji on the canvas; its `x` / `y` are synced as traitlets, so you can `.observe(...)` the position from Python. |
 | [`stroke.ipynb`](stroke.ipynb) | `StrokeWidget` | Captures the currently-drawn freehand stroke as a `[[x, y], ...]` list in Python via the `stroke` traitlet. |
 
@@ -27,6 +27,10 @@ Minimal usage:
 ```python
 from tldraw import TldrawWidget
 t = TldrawWidget()
+t
+
+# load and save to ./drawing.tldr on your disk
+t = TldrawWidget(path="drawing.tldr")
 t
 ```
 
