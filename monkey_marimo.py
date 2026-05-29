@@ -15,13 +15,6 @@ def _():
 @app.cell
 def _(MonkeyWidget, mo):
     m = mo.ui.anywidget(MonkeyWidget(width=900, height=440))
-
-
-    p1 = "/Users/jan-hendrik/projects/jupyter-tldraw/js/monkey.jsx"
-    p2 = "/Users/jan-hendrik/projects/jupyter-tldraw/src/tldraw/static/monkey.js"
-    mo.watch.file(p1)
-    mo.watch.file(p2) 
-
     m
     return (m,)
 
@@ -29,6 +22,23 @@ def _(MonkeyWidget, mo):
 @app.cell
 def _(m):
     m.x, m.y
+    return
+
+
+@app.cell
+def _(mo):
+    import anywidget
+
+    p1 = "/Users/jan-hendrik/projects/jupyter-tldraw/src/tldraw/static/monkey.js"
+    p2 = "/Users/jan-hendrik/projects/jupyter-tldraw/src/tldraw/static/monkey.css"
+
+    class Widget(anywidget.AnyWidget):
+        _esm = str(mo.watch.file(p1))
+        _css = str(mo.watch.file(p2))
+
+
+    w = Widget()
+    w
     return
 
 

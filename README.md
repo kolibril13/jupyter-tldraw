@@ -51,3 +51,7 @@ Put this at the top of any dev notebook, *before* importing the widget:
 `ANYWIDGET_HMR=1` makes anywidget watch the `_esm` / `_css` files; `%autoreload 2` does the same on the Python side. Combined with `npm run dev`, edits to `js/*.jsx` swap into the running widget without re-running the cell.
 
 > anywidget reads `ANYWIDGET_HMR` at import time — if you forgot to set it first, restart the kernel once.
+
+
+# In marimo
+

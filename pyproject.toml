@@ -5,7 +5,11 @@ build-backend = "hatchling.build"
 [project]
 name = "tldraw"
 version = "5.0.0"
-dependencies = ["anywidget", "ipykernel"]
+dependencies = [
+    "anywidget",
+    "ipykernel",
+    "marimo>=0.23.8",
+]
 description = "Tldraw for Jupyter"
 requires-python = ">=3.13"
 license = "MIT"
