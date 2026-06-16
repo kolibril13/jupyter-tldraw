@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tldraw"
-version = "5.0.0"
+version = "5.1.1"
 dependencies = [
     "anywidget",
     "ipykernel",
